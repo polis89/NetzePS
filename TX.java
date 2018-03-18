@@ -10,21 +10,47 @@ import java.util.*;
 //Messen?
 class TX
 {
-  public static void main( String[] args ) throws IOException,
-                  InterruptedException
+  private static final int PORT = 4711;
+  private static final int DEFAULT_PACKETS_AMOUNT = 100;
+
+  public static void main( String[] args ) throws IOException, InterruptedException
   {
     InetAddress ia = InetAddress.getByName( "127.0.0.1" );
     
-    int count = 0;
-    int anz_pakete= 100;
+    long count = 0;
+    int anz_pakete = DEFAULT_PACKETS_AMOUNT;
     
-    while ( count<anz_pakete )
+    while ( count < anz_pakete )
     {
-      String s = "00101";
+      System.out.println( "======" );
+      
+      String s = "Hello world"; //String '01010' represents not bites, but just a string
       byte[] raw = s.getBytes();
-     
+      byte[] data = new byte[raw.length + 4]; //added bytes for Sequenznummer
+      byte[] sequenzNum = convertIntTo4Bytes(count); //Make sequense to 4 bytes
+      
+      // Print sequenzNum in bits 
+      // Only for test purposes
+      StringBuffer sb = new StringBuffer();
+      for(int i = 3; i >= 0; i--){
+        for(int j = 0; j < 8; j++){
+          sb.append((sequenzNum[i] >>> j) % 2);        
+        }
+        sb.append(" ");
+      }
+      System.out.println("Sequenz Nummer in bits:" + sb.reverse().toString());
 
-      DatagramPacket packet = new DatagramPacket( raw, raw.length, ia, 4711 );
+
+      for(int i = 0; i < sequenzNum.length; i++){
+        data[i] = sequenzNum[i]; //In output these bytes can be with '-' sign due Java convention. But in reality they are plain bytes
+      }
+      for(int i = 0; i < raw.length; i++){
+        data[i+4] = raw[i];
+      }
+
+
+      DatagramPacket packet = new DatagramPacket( data, data.length, ia, PORT ); 
+      System.out.println( "DatagramPacket: " + Arrays.toString(packet.getData()) );
 
       DatagramSocket dSocket = new DatagramSocket();
 
@@ -35,6 +61,15 @@ class TX
 
       
     }
+  }
+
+  private static byte[] convertIntTo4Bytes(long value){
+    byte [] data = new byte[4];
+    data[3] = (byte) value;
+    data[2] = (byte) (value >>> 8);
+    data[1] = (byte) (value >>> 16);
+    data[0] = (byte) (value >>> 32);
+    return data;
   }
 }
 
