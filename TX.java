@@ -11,7 +11,7 @@ import java.util.*;
 class TX
 {
   private static final int PORT = 4711;
-  private static final int DEFAULT_PACKETS_AMOUNT = 100;
+  private static final int DEFAULT_PACKETS_AMOUNT = 1000;
 
   public static void main( String[] args ) throws IOException, InterruptedException
   {
