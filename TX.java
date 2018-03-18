@@ -1,12 +1,12 @@
-package TX_j;
+// package TX_j;
 
 import java.io.IOException;
 import java.net.*;
 import java.util.*;
 
 
-//Parameter sollen irgendwo eingegeben werden können
-//byte->string bzw umgekehrt für C
+//Parameter sollen irgendwo eingegeben werden koennen
+//byte->string bzw umgekehrt fuer C
 //Messen?
 class TX
 {
