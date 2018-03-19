@@ -1,0 +1,6 @@
+To make a file: (Linux) (1024 * 1024 Bytes)
+
+truncate -s 1048576 file.test
+
+adress on my webspace: 
+http://student.cosy.sbg.ac.at/~dpolian/file.test
