@@ -1,77 +1,90 @@
-#include<stdio.h>
-#include<winsock2.h>
-
-
-#pragma comment(lib,"ws2_32.lib") //Winsock Library
-
+#include<stdio.h> 
+#include<stdlib.h> 
+#include<arpa/inet.h>
+#include<sys/socket.h>
+#include <math.h> //pow
+ 
 #define BUFLEN 512  //Max length of buffer
 #define PORT 4711   //The port on which to listen for incoming data
-
-
-int main()
+ 
+void die(char *s)
 {
-	SOCKET s;
-	struct sockaddr_in server, si_other;
-	int slen, recv_len;
-	char buf[BUFLEN];
-	WSADATA wsa;
+    perror(s);
+    exit(1);
+}
+ 
+int main(void)
+{
+    struct sockaddr_in addr; //Socket Address for Internet
+    int slen = sizeof(addr); 
+    int sock; //Socket descriptor
+    int recv_len;
+    int seq_num;
+    int i;
+    int summ = 0;
+    unsigned char buf[BUFLEN]; //Buffer to recieve
+     
+  	addr.sin_family = AF_INET;
+		addr.sin_port = htons(PORT);
+		addr.sin_addr.s_addr = htonl(INADDR_ANY);
 
-	slen = sizeof(si_other);
+    //Get new socket
+    // AF_INET -> IPv4
+    // SOCK_DGRAM -> datagram service
+    // IPPROTO_UDP -> for UDP
+    if ((sock=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
+    {
+        die("on open error");
+    }
+     
+    //bind socket to port
+    if( bind(sock , (struct sockaddr*)&addr, sizeof(addr) ) == -1)
+    {
+        die("bind");
+    }
+     
+    //keep listening for data
+    while(1)
+    {
+    		printf("=========\n");
+        fflush(stdout);
+         
+        //receive data
+        if ((recv_len = recvfrom(sock, buf, BUFLEN, 0, (struct sockaddr *) &addr, &slen)) == -1)
+        {
+            die("recvfrom()");
+        }
+         
+        //print details of the client/peer and the data received
+        printf("Received packet: \n");
 
-	//Initialise winsock
-	printf("\nInitialising Winsock...");
-	if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0)
-	{
-		printf("Failed. Error Code : %d", WSAGetLastError());
-		exit(EXIT_FAILURE);
-	}
-	printf("Initialised.\n");
 
-	//Create a socket
-	if ((s = socket(AF_INET, SOCK_DGRAM, 0)) == INVALID_SOCKET)
-	{
-		printf("Could not create socket : %d", WSAGetLastError());
-	}
-	printf("Socket created.\n");
+				for (i = 0; i < recv_len; i++)
+				{
+				    if (i > 0) printf(":");
+				    printf("%02d", buf[i]);
+				}
+				printf("\n");
 
-	//Prepare the sockaddr_in structure
-	server.sin_family = AF_INET;
-	server.sin_addr.s_addr = INADDR_ANY;
-	server.sin_port = htons(PORT);
+				seq_num = buf[3] + buf[2] * 256 + buf[1] * pow(256.0, 2) + buf[0] * pow(256.0, 3);
 
-	//Bind
-	if (bind(s, (struct sockaddr *)&server, sizeof(server)) == SOCKET_ERROR)
-	{
-		printf("Bind failed with error code : %d", WSAGetLastError());
-		exit(EXIT_FAILURE);
-	}
-	puts("Bind done");
+				printf("Sequenz Nummer: %d\n", seq_num);
+				printf("Message: ");
+				for (i = 4; i < recv_len; i++)
+				{
+				    printf("%c", buf[i]);
+				}
+				printf("\n");
 
-	//keep listening for data
-	while (1)
-	{
-		printf("Waiting for data...\n");
-		fflush(stdout);
+				printf("Packets recieved: %d\n", ++summ);
 
-		//clear the buffer by filling null, it might have previously received data
-		memset(buf, '\0', BUFLEN);
-
-		//try to receive some data, this is a blocking call
-		if ((recv_len = recvfrom(s, buf, BUFLEN, 0, (struct sockaddr *) &si_other, &slen)) == SOCKET_ERROR)
-		{
-			printf("recvfrom() failed with error code : %d", WSAGetLastError());
-			exit(EXIT_FAILURE);
-		}
-
-		//print details of the client/peer and the data received
-		printf("Received packet from local port:%d adresse:%d buffer:%d\n" , si_other.sin_port, si_other.sin_addr,buf);
-		
-
-	
-	}
-
-	closesocket(s);
-	WSACleanup();
-
-	return 0;
+        // //now reply the client with the same data
+        // if (sendto(s, buf, recv_len, 0, (struct sockaddr*) &si_other, slen) == -1)
+        // {
+        //     die("sendto()");
+        // }
+    }
+ 
+    // close(s);
+    return 0;
 }

@@ -28,17 +28,8 @@ class TX
       byte[] raw = s.getBytes();
       byte[] data = new byte[raw.length + 4]; //added bytes for Sequenznummer
       byte[] sequenzNum = convertIntTo4Bytes(count); //Make sequense to 4 bytes
-      
-      // Print sequenzNum in bits 
-      // Only for test purposes
-      StringBuffer sb = new StringBuffer();
-      for(int i = 3; i >= 0; i--){
-        for(int j = 0; j < 8; j++){
-          sb.append((sequenzNum[i] >>> j) % 2);        
-        }
-        sb.append(" ");
-      }
-      System.out.println("Sequenz Nummer in bits:" + sb.reverse().toString());
+
+      System.out.println("Sequenz Nummer: " + count);
 
 
       for(int i = 0; i < sequenzNum.length; i++){
@@ -50,7 +41,16 @@ class TX
 
 
       DatagramPacket packet = new DatagramPacket( data, data.length, ia, PORT ); 
-      System.out.println( "DatagramPacket: " + Arrays.toString(packet.getData()) );
+      System.out.print( "DatagramPacket: ");
+      for(int i = 0; i < data.length; i++){
+        if(i != 0)
+          System.out.print(":");
+        if(data[i] < 0)
+          System.out.print(data[i] + 256); //Fix 2-complement
+        else
+          System.out.print(data[i]); 
+      }
+      System.out.println();
 
       DatagramSocket dSocket = new DatagramSocket();
 
