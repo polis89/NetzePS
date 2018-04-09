@@ -25,8 +25,8 @@ int main(void)
     unsigned char buf[BUFLEN]; //Buffer to recieve
      
   	addr.sin_family = AF_INET;
-		addr.sin_port = htons(PORT);
-		addr.sin_addr.s_addr = htonl(INADDR_ANY);
+	addr.sin_port = htons(PORT);
+	addr.sin_addr.s_addr = htonl(INADDR_ANY);
 
     //Get new socket
     // AF_INET -> IPv4
@@ -56,35 +56,29 @@ int main(void)
         }
          
         //print details of the client/peer and the data received
-        printf("Received packet: \n");
+        printf("Length: %d\n", recv_len);
 
 
-				for (i = 0; i < recv_len; i++)
-				{
-				    if (i > 0) printf(":");
-				    printf("%02d", buf[i]);
-				}
-				printf("\n");
+		for (i = 0; i < recv_len; i++)
+		{
+		    if (i > 0) printf(":");
+		    printf("%02d", buf[i]);
+		}
+		printf("\n");
 
-				seq_num = buf[3] + buf[2] * 256 + buf[1] * pow(256.0, 2) + buf[0] * pow(256.0, 3);
+		seq_num = buf[3] + buf[2] * 256 + buf[1] * pow(256.0, 2) + buf[0] * pow(256.0, 3);
 
-				printf("Sequenz Nummer: %d\n", seq_num);
-				printf("Message: ");
-				for (i = 4; i < recv_len; i++)
-				{
-				    printf("%c", buf[i]);
-				}
-				printf("\n");
+		printf("Sequenz Nummer: %d\n", seq_num);
+		printf("Message: ");
+		for (i = 4; i < recv_len; i++)
+		{
+		    printf("%c", buf[i]);
+		}
+		printf("\n");
 
-				printf("Packets recieved: %d\n", ++summ);
+		printf("Packets recieved: %d\n", ++summ);
 
-        // //now reply the client with the same data
-        // if (sendto(s, buf, recv_len, 0, (struct sockaddr*) &si_other, slen) == -1)
-        // {
-        //     die("sendto()");
-        // }
     }
  
-    // close(s);
     return 0;
 }

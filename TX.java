@@ -24,7 +24,7 @@ class TX
     {
       System.out.println( "======" );
       
-      String s = "Hello world"; //String '01010' represents not bites, but just a string
+      String s = "Hello frome TX.java"; //String '01010' represents not bites, but just a string
       byte[] raw = s.getBytes();
       byte[] data = new byte[raw.length + 4]; //added bytes for Sequenznummer
       byte[] sequenzNum = convertIntTo4Bytes(count); //Make sequense to 4 bytes
@@ -68,7 +68,7 @@ class TX
     data[3] = (byte) value;
     data[2] = (byte) (value >>> 8);
     data[1] = (byte) (value >>> 16);
-    data[0] = (byte) (value >>> 32);
+    data[0] = (byte) (value >>> 24);
     return data;
   }
 }
