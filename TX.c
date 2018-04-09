@@ -7,7 +7,7 @@
  
 #define BUFLEN 512  //Max length of buffer
 #define PORT 4711   //The port on which to listen for incoming data
-#define PACK_NUM 1000   //Number of packets
+#define PACK_NUM 10000   //Number of packets
  
 void die(char *s)
 {
@@ -81,10 +81,11 @@ int main(void)
 
         int sent_bytes = sendto(sock, data, 4 + strlen(message), 0, (const struct sockaddr*) &addr_to_send, slen);
 
-		printf("Packet gesendet\n");
+		printf("Packet gesendet. Bytes: %d\n", sent_bytes);
 
         count++;
 
+        usleep(100);  //without this sleep, not all of the package are sent =(
     }
  
     return 0;
