@@ -1,13 +1,14 @@
 #include<stdio.h> 
 #include<stdlib.h> 
 #include<string.h> 
+#include<unistd.h>
 #include<arpa/inet.h>
 #include<sys/socket.h>
 #include <math.h> //pow
  
 #define BUFLEN 512  //Max length of buffer
 #define PORT 4711   //The port on which to listen for incoming data
-#define PACK_NUM 10000   //Number of packets
+#define PACK_NUM 1000   //Number of packets
  
 void die(char *s)
 {
@@ -85,7 +86,7 @@ int main(void)
 
         count++;
 
-        usleep(100);  //without this sleep, not all of the package are sent =(
+        usleep(10000);  //without this sleep, not all of the package are sent =(
     }
  
     return 0;

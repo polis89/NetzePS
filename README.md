@@ -9,8 +9,10 @@ java RX
 
 # To compile c
 make RX
+make TX
 # To run c
 ./RX
+./TX
 
 
 #Falls ich richtig verstehe, als args sollen wir Anzahl der packeten eingeben.
