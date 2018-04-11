@@ -1,24 +1,41 @@
-// package TX_j;
+/**
+ * TX
+ * Usage: java TX <port> <packets amount> <delay>
+ *
+ * @author Dmitrii Polianskii, Lukas Lamminger
+ */
 
 import java.io.IOException;
 import java.net.*;
 import java.util.*;
+import java.util.*;
+import java.util.concurrent.*;
 
 
-//Parameter sollen irgendwo eingegeben werden koennen
-//byte->string bzw umgekehrt fuer C
-//Messen?
 class TX
 {
-  private static final int PORT = 4711;
-  private static final int DEFAULT_PACKETS_AMOUNT = 1000;
+  private static int port = 4711;
+  private static int packetsAmount = 1000;
+  private static int delay = 0;
 
   public static void main( String[] args ) throws IOException, InterruptedException
   {
+
+
+    if (args.length > 0){
+      port = Integer.parseInt(args[0]);
+    }
+    if (args.length > 1){
+      packetsAmount = Integer.parseInt(args[1]);
+    }
+    if (args.length > 2){
+      delay = Integer.parseInt(args[2]);
+    }
+
     InetAddress ia = InetAddress.getByName( "127.0.0.1" );
-    
+
     long count = 0;
-    int anz_pakete = DEFAULT_PACKETS_AMOUNT;
+    int anz_pakete = packetsAmount;
     
     while ( count < anz_pakete )
     {
@@ -40,7 +57,7 @@ class TX
       }
 
 
-      DatagramPacket packet = new DatagramPacket( data, data.length, ia, PORT ); 
+      DatagramPacket packet = new DatagramPacket( data, data.length, ia, port ); 
       System.out.print( "DatagramPacket: ");
       for(int i = 0; i < data.length; i++){
         if(i != 0)
@@ -58,6 +75,7 @@ class TX
 
       System.out.println( "Paket gesendet" );
       count++;
+      TimeUnit.MICROSECONDS.sleep(delay);
 
       
     }

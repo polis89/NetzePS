@@ -1,6 +1,6 @@
 /**
  * TX
- * Usage: TX <IP> <port> <packets to send> <packet size> <delay> <testsToRun>
+ * Usage: TX <port> <packets amount> <send delay>
  *
  * @author Dmitrii Polianskii, Lukas Lamminger
  *
@@ -17,7 +17,7 @@
 unsigned char *message = "Hello from TX.c";
 unsigned short port = 4711; //Default port
 int packetsAmount = 100; //Default value
-int delay = 1000; //Delay between packets send
+int delay = 0; //Delay between packets send
 int sock; //Socket descriptor
  
 void die(char *s)
@@ -28,11 +28,12 @@ void die(char *s)
  
 int main(int argc, char *argv[])
 {
-    if (argc < 3)
-        fputs ("usage: TX <port> <packets amount>\n", stderr);
+    if (argc < 4)
+        fputs ("usage: TX <port> <packets amount> <send delay>\n", stderr);
     else {
         port = strtol(argv[1], NULL, 10);
         packetsAmount = strtol(argv[2], NULL, 10);
+        delay = strtol(argv[3], NULL, 10);
     }
 
     struct sockaddr_in addr_me, addr_to_send; //Socket Address for Internet

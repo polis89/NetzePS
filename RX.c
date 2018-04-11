@@ -1,3 +1,11 @@
+/**
+ * RX
+ * Usage: RX <port> <buffer size>
+ *
+ * @author Dmitrii Polianskii, Lukas Lamminger
+ *
+ */
+
 #include<stdio.h> 
 #include<stdlib.h> 
 #include<arpa/inet.h>
@@ -7,6 +15,8 @@
 unsigned short port = 4711; //Default port
 int bufferSize = 512; //Length of buffer
 int sock; //Socket descriptor
+int summ = 0; //Summ recieve
+int summLost = 0; //Summ lost
 
 void die(char *s)
 {
@@ -25,9 +35,8 @@ int main(int argc, char *argv[])
     struct sockaddr_in addr; //Socket Address for Internet
     int slen = sizeof(addr); 
     int recv_len;
-    int seq_num;
+    int seq_num, seq_num_prev = 0;
     int i;
-    int summ = 0;
     unsigned char buf[bufferSize]; //Buffer to recieve
      
   	addr.sin_family = AF_INET;
@@ -61,10 +70,9 @@ int main(int argc, char *argv[])
             die("recvfrom()");
         }
          
-        //print details of the client/peer and the data received
-        printf("Length: %d\n", recv_len);
+        // printf("Length: %d\n", recv_len);
 
-
+        printf("Datagram: ");
 		for (i = 0; i < recv_len; i++)
 		{
 		    if (i > 0) printf(":");
@@ -74,6 +82,13 @@ int main(int argc, char *argv[])
 
 		seq_num = buf[3] + buf[2] * 256 + buf[1] * pow(256.0, 2) + buf[0] * pow(256.0, 3);
 
+        if(seq_num_prev < seq_num && seq_num_prev + 1 != seq_num){
+            //Lost of packet is detected only in the middle of the stream. 
+            //If Lost occures at the end of the stream, its will not be detected.
+            summLost += seq_num - seq_num_prev + 1;
+        }
+        seq_num_prev = seq_num;
+
 		printf("Sequenz Nummer: %d\n", seq_num);
 		printf("Message: ");
 		for (i = 4; i < recv_len; i++)
@@ -82,7 +97,8 @@ int main(int argc, char *argv[])
 		}
 		printf("\n");
 
-		printf("Packets recieved: %d\n", ++summ);
+        printf("Packets recieved: %d\n", ++summ);
+		printf("Packets lost: %d\n", summLost);
 
     }
  
