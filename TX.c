@@ -1,3 +1,11 @@
+/**
+ * TX
+ * Usage: TX <IP> <port> <packets to send> <packet size> <delay> <testsToRun>
+ *
+ * @author Dmitrii Polianskii, Lukas Lamminger
+ *
+ */
+
 #include<stdio.h> 
 #include<stdlib.h> 
 #include<string.h> 
@@ -6,9 +14,11 @@
 #include<sys/socket.h>
 #include <math.h> //pow
  
-#define BUFLEN 512  //Max length of buffer
-#define PORT 4711   //The port on which to listen for incoming data
-#define PACK_NUM 1000   //Number of packets
+unsigned char *message = "Hello from TX.c";
+unsigned short port = 4711; //Default port
+int packetsAmount = 100; //Default value
+int delay = 1000; //Delay between packets send
+int sock; //Socket descriptor
  
 void die(char *s)
 {
@@ -16,22 +26,27 @@ void die(char *s)
     exit(1);
 }
  
-int main(void)
+int main(int argc, char *argv[])
 {
+    if (argc < 3)
+        fputs ("usage: TX <port> <packets amount>\n", stderr);
+    else {
+        port = strtol(argv[1], NULL, 10);
+        packetsAmount = strtol(argv[2], NULL, 10);
+    }
+
     struct sockaddr_in addr_me, addr_to_send; //Socket Address for Internet
-    unsigned char *message = "Hello from TX.c";
+    
     char *datagram;
     int count = 0;
     int slen = sizeof(addr_to_send); 
-    int sock; //Socket descriptor
-    int i;
      
     addr_me.sin_family = AF_INET;
     addr_me.sin_port = htons(INADDR_ANY);
     addr_me.sin_addr.s_addr = htonl(INADDR_ANY);
 
   	addr_to_send.sin_family = AF_INET;
-	addr_to_send.sin_port = htons(PORT);
+	addr_to_send.sin_port = htons(port);
 	addr_to_send.sin_addr.s_addr = inet_addr("127.0.0.1");
 
     //Get new socket
@@ -50,7 +65,7 @@ int main(void)
     }
      
     //keep listening for data
-    while(count < PACK_NUM)
+    while(count < packetsAmount)
     {
         printf("=========\n");
         printf("Sequenz Nummer: %d\n", count);
@@ -72,6 +87,7 @@ int main(void)
         // printf("Sequenz Nummer: %02d %02d %02d %02d\n", seq_num_0, seq_num_1, seq_num_2,  seq_num_3);
         printf("Datagram: ");
 
+        int i;
         for (i = 0; i < 4 + strlen(message); i++)
         {
             if (i > 0) printf(":");
@@ -86,7 +102,7 @@ int main(void)
 
         count++;
 
-        usleep(10000);  //without this sleep, not all of the package are sent =(
+        usleep(delay);  //without this sleep, not all of the package are sent =(
     }
  
     return 0;

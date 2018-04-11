@@ -4,28 +4,34 @@
 #include<sys/socket.h>
 #include <math.h> //pow
  
-#define BUFLEN 512  //Max length of buffer
-#define PORT 4711   //The port on which to listen for incoming data
- 
+unsigned short port = 4711; //Default port
+int bufferSize = 512; //Length of buffer
+int sock; //Socket descriptor
+
 void die(char *s)
 {
     perror(s);
     exit(1);
 }
  
-int main(void)
+int main(int argc, char *argv[])
 {
+    if (argc < 3)
+        fputs ("usage: RX <port> <buffer size>\n", stderr);
+    else {
+        port = strtol(argv[1], NULL, 10);
+        bufferSize = strtol(argv[2], NULL, 10);
+    }
     struct sockaddr_in addr; //Socket Address for Internet
     int slen = sizeof(addr); 
-    int sock; //Socket descriptor
     int recv_len;
     int seq_num;
     int i;
     int summ = 0;
-    unsigned char buf[BUFLEN]; //Buffer to recieve
+    unsigned char buf[bufferSize]; //Buffer to recieve
      
   	addr.sin_family = AF_INET;
-	addr.sin_port = htons(PORT);
+	addr.sin_port = htons(port);
 	addr.sin_addr.s_addr = htonl(INADDR_ANY);
 
     //Get new socket
@@ -46,11 +52,11 @@ int main(void)
     //keep listening for data
     while(1)
     {
-    		printf("=========\n");
+		printf("=========\n");
         fflush(stdout);
          
         //receive data
-        if ((recv_len = recvfrom(sock, buf, BUFLEN, 0, (struct sockaddr *) &addr, &slen)) == -1)
+        if ((recv_len = recvfrom(sock, buf, bufferSize, 0, (struct sockaddr *) &addr, &slen)) == -1)
         {
             die("recvfrom()");
         }

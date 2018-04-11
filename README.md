@@ -11,9 +11,10 @@ java RX
 make RX
 make TX
 # To run c
-./RX
-./TX
+./RX <port> <buffer size>
+	default:
+./RX 4711 512
 
-
-#Falls ich richtig verstehe, als args sollen wir Anzahl der packeten eingeben.
-# Maybe port ist auch durch paramenter einzugeben
+./TX <port> <packet samount>
+	default:
+./TX 4711 100
