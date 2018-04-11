@@ -13,7 +13,7 @@
 #include <math.h> //pow
  
 unsigned short port = 4711; //Default port
-int bufferSize = 512; //Length of buffer
+int bufferSize = 1024; //Length of buffer
 int sock; //Socket descriptor
 int summ = 0; //Summ recieve
 int summLost = 0; //Summ lost
