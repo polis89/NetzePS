@@ -12,7 +12,8 @@
 #include<sys/socket.h>
 #include <math.h> //pow
  
-unsigned short port = 4711; //Default port
+unsigned short portTX = 4700; //Default port
+unsigned short portRX = 4711; //Default port
 int bufferSize = 1024; //Length of buffer
 int sock; //Socket descriptor
 int summ = 0; //Summ recieve
@@ -27,21 +28,25 @@ void die(char *s)
 int main(int argc, char *argv[])
 {
     if (argc < 3)
-        fputs ("usage: RX <port> <buffer size>\n", stderr);
+        fputs ("usage: RX <portTX> <portRX>\n", stderr);
     else {
-        port = strtol(argv[1], NULL, 10);
-        bufferSize = strtol(argv[2], NULL, 10);
+        portTX = strtol(argv[1], NULL, 10);
+        portRX = strtol(argv[2], NULL, 10);
     }
-    struct sockaddr_in addr; //Socket Address for Internet
-    int slen = sizeof(addr); 
+    struct sockaddr_in addr_me, addr_to_send; //Socket Address for Internet
+    int slen = sizeof(addr_me); 
     int recv_len;
     int seq_num, seq_num_prev = 0;
     int i;
     unsigned char buf[bufferSize]; //Buffer to recieve
      
-  	addr.sin_family = AF_INET;
-	addr.sin_port = htons(port);
-	addr.sin_addr.s_addr = htonl(INADDR_ANY);
+  	addr_me.sin_family = AF_INET;
+	addr_me.sin_port = htons(portRX);
+	addr_me.sin_addr.s_addr = htonl(INADDR_ANY);
+
+    addr_to_send.sin_family = AF_INET;
+    addr_to_send.sin_port = htons(portTX);
+    addr_to_send.sin_addr.s_addr = inet_addr("127.0.0.1");
 
     //Get new socket
     // AF_INET -> IPv4
@@ -53,7 +58,7 @@ int main(int argc, char *argv[])
     }
      
     //bind socket to port
-    if( bind(sock , (struct sockaddr*)&addr, sizeof(addr) ) == -1)
+    if( bind(sock , (struct sockaddr*)&addr_me, sizeof(addr_me) ) == -1)
     {
         die("bind");
     }
@@ -61,11 +66,11 @@ int main(int argc, char *argv[])
     //keep listening for data
     while(1)
     {
-		printf("=========\n");
+		printf("=== RECIEVED ===\n");
         fflush(stdout);
          
         //receive data
-        if ((recv_len = recvfrom(sock, buf, bufferSize, 0, (struct sockaddr *) &addr, &slen)) == -1)
+        if ((recv_len = recvfrom(sock, buf, bufferSize, 0, (struct sockaddr *) &addr_me, &slen)) == -1)
         {
             die("recvfrom()");
         }
@@ -80,6 +85,14 @@ int main(int argc, char *argv[])
 		}
 		printf("\n");
 
+        unsigned char ack_data[5];   
+        ack_data[0] = buf[0];
+        ack_data[1] = buf[1];
+        ack_data[2] = buf[2];
+        ack_data[3] = buf[3];
+            
+        int sent_bytes = sendto(sock, ack_data, 4, 0, (const struct sockaddr*) &addr_to_send, slen);
+
 		seq_num = buf[3] + buf[2] * 256 + buf[1] * pow(256.0, 2) + buf[0] * pow(256.0, 3);
 
         if(seq_num_prev < seq_num && seq_num_prev + 1 != seq_num){
@@ -90,15 +103,15 @@ int main(int argc, char *argv[])
         seq_num_prev = seq_num;
 
 		printf("Sequenz Nummer: %d\n", seq_num);
-		printf("Message: ");
-		for (i = 4; i < recv_len; i++)
-		{
-		    printf("%c", buf[i]);
-		}
-		printf("\n");
+		// printf("Message: ");
+		// for (i = 4; i < recv_len; i++)
+		// {
+		//     printf("%c", buf[i]);
+		// }
+		// printf("\n");
 
         printf("Packets recieved: %d\n", ++summ);
-		printf("Packets lost: %d\n", summLost);
+		// printf("Packets lost: %d\n", summLost);
 
     }
  
