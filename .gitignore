@@ -6,3 +6,8 @@ TX
 out.txt
 RX.o
 TX.o
+outRX.txt
+outTX.txt
+out2.txt
+to_send.txt
+
