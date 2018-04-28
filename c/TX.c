@@ -1,17 +1,18 @@
 /**
  * TX
- * Usage: TX <port> <file_name> <packet_size> <packet_block_size> <send_delay>
+ * Usage: TX <portTX> <portRX> <packet_size> <packet_block_size> <send_delay> <file_name>
+ * Default: TX 4700 4711 1000 100 0 to_send.jpg
  *
  * @author Dmitrii Polianskii, Lukas Lamminger
  *
  */
 
-#include<stdio.h> 
-#include<stdlib.h> 
-#include<string.h> 
-#include<unistd.h>
-#include<arpa/inet.h>
-#include<sys/socket.h>
+#include <stdio.h> 
+#include <stdlib.h> 
+#include <string.h> 
+#include <unistd.h>
+#include <arpa/inet.h>
+#include <sys/socket.h>
 #include <math.h> 
 #include <stdbool.h>
 #include <time.h>
@@ -21,7 +22,6 @@ typedef struct{
     char *data;
 } Packet;
  
-unsigned char *message = "Hello from TX.c";
 unsigned char *file_name = "to_send.jpg"; //Default file name to send
 unsigned short portTX = 4700; //Default port
 unsigned short portRX = 4711; //Default port
@@ -29,7 +29,7 @@ int packet_size = 1000; //Default size in bytes
 int packet_payload; 
 int packet_block_size = 100; //Default packet block size 
 int packets_amount; 
-int delay = 0; //Delay between blocks of packet
+int delay = 200; //Delay between blocks of packet
 int sock, sock_for_acks; //Socket descriptor
 Packet **packets_to_send;
 
@@ -47,17 +47,21 @@ void die(char *s)
 }
 
 void sendPacket(int index){
-    printf("=========\n");
-    printf("Sequenz Nummer: %d\n", index);
-
-    unsigned char data[5 + strlen(message)];
+    printf("=== SEND ===\n");
+    printf("seq_num: %d\n", index);
+    unsigned char data[5 + packet_payload];
     strcpy(data, "xxxx");
-    strcat(data, message);
+    strcat(data, packets_to_send[index]->data);
 
     unsigned int seq_num_0 = (index >> 24) & 0xFF;
     unsigned int seq_num_1 = (index >> 16) & 0xFF;
     unsigned int seq_num_2 = (index >> 8) & 0xFF;
     unsigned int seq_num_3 = index & 0xFF;
+    //Last fragment bit
+    if(index == packets_amount-1){
+        int chb = 0b10000000; //Bitmask
+        seq_num_0 = seq_num_0 | chb;
+    }
     unsigned char seq_num[4] = {seq_num_0, seq_num_1, seq_num_2, seq_num_3};
     data[0] = seq_num_0;
     data[1] = seq_num_1;
@@ -68,15 +72,15 @@ void sendPacket(int index){
     // printf("Datagram: ");
 
     int i;
-    for (i = 0; i < 4 + strlen(message); i++)
+    for (i = 0; i < 10; i++)
     {
-        // if (i > 0) printf(":");
-        // printf("%02d", data[i]);
+        if (i > 0) printf(":");
+        printf("%02d", data[i]);
     }
-    // printf("\n");
+    printf("\n");
 
 
-    int sent_bytes = sendto(sock, data, 4 + strlen(message), 0, (const struct sockaddr*) &addr_to_send, slen);
+    int sent_bytes = sendto(sock, data, 4 + packet_payload, 0, (const struct sockaddr*) &addr_to_send, slen);
 
     // printf("Packet gesendet. Bytes: %d\n", sent_bytes);
 
@@ -96,13 +100,25 @@ void sendFile(){
     //Sending Loop
     while(packets_sended < packets_amount){
         //Send block of packets loop
+        printf("packets_sended: %d\n", packets_sended);
         int count = 0; 
         while(count < packet_block_size){
             //Find next non-sended packet
+            bool loopEnd = false;
             while(ack[index_iterator]){
-                index_iterator = ++index_iterator / packets_amount;
+                index_iterator++;
+                if(index_iterator == packets_amount){
+                    index_iterator = 0;
+                    printf("loopEnd = true");
+                    loopEnd = true;
+                    break;
+                }
             }
+            if(loopEnd)
+                break;
             sendPacket(index_iterator);
+            if(index_iterator == packets_amount - 1)
+                break;
             index_iterator++;
             count++;
         }
@@ -114,6 +130,8 @@ void sendFile(){
         tv.tv_sec = sec;
         tv.tv_usec = delay - sec*1000000;
         for(int i = 0; i < packets_amount; i++){
+            if(packets_amount == packets_sended)
+                break;
             FD_ZERO(&set); 
             FD_SET(sock_for_acks, &set); 
             int rv = select(sock_for_acks + 1, &set, NULL, NULL, &tv);
@@ -123,8 +141,7 @@ void sendFile(){
                 int nBytes = recvfrom(sock_for_acks, &buf, 1024, 0, (struct sockaddr *) &addr_me, &slenme);
                 int received_seq_num = buf[3] + buf[2] * 256 + buf[1] * pow(256.0, 2) + buf[0] * pow(256.0, 3);
 
-                printf("Received ack: %d\n", received_seq_num);
-                printf("Received bytes: %d\n", nBytes);
+                printf("=== Ack: %d ===\n", received_seq_num);
                 if(!ack[received_seq_num]){
                     ack[received_seq_num] = true;
                     packets_sended++;

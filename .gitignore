@@ -3,3 +3,6 @@ TX.class
 output*
 RX
 TX
+out.txt
+RX.o
+TX.o
