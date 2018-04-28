@@ -14,6 +14,9 @@
 #include <string.h>
 #include <stdbool.h>
 #include <math.h> //pow
+#include <inttypes.h>
+#include "libcrc-2.0/include/checksum.h"
+#include "libcrc-2.0/include/crc32.c"
 
 typedef struct{
     char *data;
@@ -38,6 +41,8 @@ int packet_payload = -1; //-1 for unbestimmt
 int dataSize = 0;
 unsigned char *file_name = "output.jpg";
 DataRecieved *dataRecieved;
+uint32_t  crc_32_calc; //CRC32
+unsigned char crc_32_val[4];
 
 void die(char *s)
 {
@@ -45,10 +50,40 @@ void die(char *s)
     exit(1);
 }
 
+void checkCRC32(){
+    unsigned char prev_byte;
+    FILE *fp;
+    int ch;
+
+    prev_byte = 0;
+    fp = fopen( file_name, "rb" );
+    if ( fp != NULL ) {
+        while( ( ch=fgetc( fp ) ) != EOF ) {
+            crc_32_calc = update_crc_32( crc_32_calc, (unsigned char) ch);
+            prev_byte = (unsigned char) ch;
+        }
+        fclose( fp );
+    }
+
+    else printf( "%s : cannot open file\n", file_name );
+
+    crc_32_calc        ^= 0xffffffffL;
+
+    printf( "crc_32_calc = 0x%08" PRIX32 "  \n", crc_32_calc);
+    if(crc_32_val[4] == (unsigned char)crc_32_calc &&
+        crc_32_val[3] == (unsigned char)(crc_32_calc >> 8) &&
+        crc_32_val[2] == (unsigned char)(crc_32_calc >> 16) &&
+        crc_32_val[1] == (unsigned char)(crc_32_calc >> 24) ){
+        printf("crc_32 is correct");
+    }else{
+        printf("crc_32 is NOT correct");
+    }
+}
+
 void assembleFile(){
-    printf("=== assembleFile ===\n");
+    printf("\n=== Assemble file ===\n");
     dataSize += packet_payload * (packets_amount-1);
-    printf("=== File Size: %d ===\n", dataSize);
+    printf("File Size: %d\n", dataSize);
     char fileString[dataSize+1]; // for \0
     int packetSize = packet_payload;
     for(int i = 0; i < packets_amount; i++){
@@ -62,13 +97,19 @@ void assembleFile(){
     }
     // printf("=== Last paket size %zu ===\n", strlen(dataRecieved->packets[packets_amount-1]->data));
     // printf("=== File size %zu ===\n", strlen(fileString));
+    printf("CRC32: 0x%02" PRIX16 " 0x%02" PRIX16 "  0x%02" PRIX16 " 0x%02" PRIX16 "\n", fileString[dataSize-4], fileString[dataSize-3], fileString[dataSize-2], fileString[dataSize-1]);
+    crc_32_val[1] = fileString[dataSize-4];
+    crc_32_val[2] = fileString[dataSize-3];
+    crc_32_val[3] = fileString[dataSize-2];
+    crc_32_val[4] = fileString[dataSize-1];
 
     FILE *fileptr;
     fileptr = fopen(file_name, "w");
-    fwrite(fileString, dataSize * sizeof(char), 1, fileptr); 
+    fwrite(fileString, (dataSize-4) * sizeof(char), 1, fileptr); 
     // fprintf(fileptr,"%s",fileString); 
     fclose(fileptr); 
     printf("=== File Ready ===\n");
+    checkCRC32();
 }
  
 int main(int argc, char *argv[])
@@ -168,6 +209,7 @@ int main(int argc, char *argv[])
             dataSize = recv_len - 4;
             printf("Last Packet\n");
             printf("packets_amount: %d\n", packets_amount);
+            printf("dataSize: %d\n", dataSize);
         }
         int packetSize = recv_len - 4;
 

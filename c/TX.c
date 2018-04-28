@@ -16,6 +16,9 @@
 #include <math.h> 
 #include <stdbool.h>
 #include <time.h>
+#include <inttypes.h>
+#include "libcrc-2.0/include/checksum.h"
+#include "libcrc-2.0/include/crc32.c"
 
 typedef struct{
     int seq_num;
@@ -34,6 +37,7 @@ int packet_payload, packets_amount;
 int sock, sock_for_acks; //Socket descriptors
 long filelen;
 Packet **packets_to_send;
+uint32_t crc_32_val; //CRC32
 
 struct sockaddr_in addr_me, addr_to_send; //Socket Address for Internet
 int slen = sizeof(addr_to_send); 
@@ -45,6 +49,28 @@ void die(char *s)
 {
     perror(s);
     exit(1);
+}
+
+int getCRC32(){
+    unsigned char prev_byte;
+    FILE *fp;
+    int ch;
+
+    prev_byte = 0;
+    fp = fopen( file_name, "rb" );
+    if ( fp != NULL ) {
+        while( ( ch=fgetc( fp ) ) != EOF ) {
+            crc_32_val = update_crc_32( crc_32_val, (unsigned char) ch);
+            prev_byte = (unsigned char) ch;
+        }
+        fclose( fp );
+    }
+
+    else printf( "%s : cannot open file\n", file_name );
+
+    crc_32_val        ^= 0xffffffffL;
+
+    return 0;
 }
 
 void sendPacket(int index){
@@ -101,7 +127,6 @@ void sendFile(){
     //Sending Loop
     while(packets_sended < packets_amount && attempt < 100){
         //Send block of packets loop
-        printf("packets_sended: %d\n", packets_sended);
         int count = 0; 
         while(count < packet_block_size){
             //Find next non-sended packet
@@ -112,7 +137,7 @@ void sendFile(){
                     index_iterator = 0;
                     loopEnd = true;
                     attempt++;
-                    printf("attempt: %d\n", attempt);
+                    printf("Attempt: %d\n", attempt);
                     break;
                 }
             }
@@ -143,7 +168,6 @@ void sendFile(){
                     printf("Receive all\n");
                     break;
                 }
-                printf("Test\n");
                 int received_seq_num = buf[3] + buf[2] * 256 + buf[1] * pow(256.0, 2) + buf[0] * pow(256.0, 3);
                 printf("=== Ack: %d ===\n", received_seq_num);
                 if(!ack[received_seq_num]){
@@ -164,20 +188,32 @@ void readFileInBuffer(){
     filelen = ftell(fileptr);             // Get the current byte offset in the file
     rewind(fileptr);                      // Jump back to the beginning of the file
 
+    getCRC32();
+    printf("File size: %zu Bytes\n", filelen);
+    filelen += 4; //For crc32
     packets_amount = 1 + filelen / packet_payload;
     packets_to_send = (Packet **) calloc (packets_amount, sizeof (Packet *));
 
-    printf("packets_amount: %d\n", packets_amount);
-    printf("filelen: %zu\n", filelen);
-    printf("packet_payload: %d\n", packet_payload);
+    printf("Packets amount: %d\n", packets_amount);
+
+    unsigned char fileBuff[filelen];
+    int read = fread(fileBuff, 1, filelen-4, fileptr);
+    fileBuff[filelen-1] = crc_32_val;
+    fileBuff[filelen-2] = crc_32_val >> 8;
+    fileBuff[filelen-3] = crc_32_val >> 16;
+    fileBuff[filelen-4] = crc_32_val >> 24;
+    printf("CRC32 for File: 0x%02" PRIX16 " 0x%02" PRIX16 " 0x%02" PRIX16 " 0x%02" PRIX16 "\n", fileBuff[filelen-4], fileBuff[filelen-3], fileBuff[filelen-2], fileBuff[filelen-1]);
 
     for(int i = 0; i < packets_amount; i++){
         Packet *p = (Packet *) malloc(sizeof(Packet));
         p->seq_num = i;
         p->data = (char *)malloc((packet_payload+1)*sizeof(char));
-        int read = fread(p->data, 1, packet_payload, fileptr);
-        if(read < packet_payload){
-            p->data[read] = '\0';
+        for(int j = 0; j < packet_payload; j++){
+            p->data[j] = fileBuff[i*packet_payload + j];
+        }
+        p->data[packet_payload] = '\0';
+        if(i == packets_amount-1){
+            p->data[(filelen%packet_payload)] = '\0';
         }
         packets_to_send[i] = p;
     }
