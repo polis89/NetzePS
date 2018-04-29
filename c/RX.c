@@ -1,6 +1,6 @@
 /**
  * RX
- * Usage: RX <port> <buffer size>
+ * Usage: RX <portTX> <portRX>
  *
  * @author Dmitrii Polianskii, Lukas Lamminger
  *

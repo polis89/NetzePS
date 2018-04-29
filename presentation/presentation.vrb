@@ -1,0 +1,14 @@
+\frametitle{RX description}
+\begin{block}{RX description}
+		\begin{enumerate}
+		\item Initialize UPD Socket
+		\item Listen for incomming packages
+		\begin{enumerate}
+			\item Write databits from package in a memory
+			\item If last-package-bit was seen, the size of file and Amount of packets can be defined.
+			\item If not all of package were recieved, then goto punkt 2.
+		\end{enumerate}
+		\item Assemble a file
+		\item Calculate CRC32 and compare with recieved one.
+		\end{enumerate}
+	\end{block}

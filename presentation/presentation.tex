@@ -1,0 +1,360 @@
+\documentclass[10pt]{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+\usepackage{graphicx}
+\graphicspath{ {pics/} }
+
+\usepackage{listings}
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{CStyle}{
+    backgroundcolor=\color{backgroundColour},   
+    commentstyle=\color{mGreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{mGray},
+    stringstyle=\color{mPurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    %breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    %numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C
+}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{Netze und Verteilte Systeme}
+\subtitle{Programmierprojekt}
+% \date{\today}
+\date{}
+\author{Dmitrii Polianskii, Lukas Lamminger}
+\institute{Universit\"at Salzburg}
+% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
+
+\begin{document}
+
+\maketitle
+
+% \begin{frame}{Themen}
+%   \setbeamertemplate{section in toc}[sections numbered]
+%   \tableofcontents[hideallsubsections]
+% \end{frame}
+
+%----------------------------------------------------------------------------------------
+%	Einleitung
+%----------------------------------------------------------------------------------------
+
+
+\begin{frame}[fragile]{Usage TX}
+	\begin{block}{C:}
+		\hspace*{2mm} \footnotesize 	 ./TX portTX portRX packet\_size packet\_block\_size send\_delay file\_name
+	\end{block}
+
+	\begin{block}{java:}
+		\hspace*{2mm} \footnotesize 	 java TX portTX portRX packet\_size packet\_block\_size send\_delay file\_name
+	\end{block}
+		
+  \begin{itemize}
+  	\footnotesize 	
+    \item{\textbf{portTX}} - port to recieve acknowlegments (default: 4700)
+    \item{\textbf{portRX}} - port to send datagrams (default: 4711)
+    \item{\textbf{packet\_size}} - size of a packet in Bytes (default: 1000)
+    \item{\textbf{packet\_block\_size}} - amount of packets between delay (default: 100)
+    \item{\textbf{send\_delay}} - delay in microsec between blocks (default: 200)
+    \item{\textbf{file\_name}} - name of a file to transmit (default: to\_send.jpg)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Usage RX}
+	\begin{block}{C:}
+		\hspace*{2mm} \footnotesize ./RX portTX portRX 
+	\end{block}
+
+	\begin{block}{java:}
+		\hspace*{2mm} \footnotesize java portRX portRX 
+	\end{block}
+		
+  \begin{itemize}
+  	\footnotesize 	
+    \item{\textbf{portTX}} - port to send acknowlegments (default: 4700)
+    \item{\textbf{portRX}} - port to recieve datagrams (default: 4711)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Header structure}
+
+  \includegraphics[width=\linewidth]{header}
+  \newline
+  A header consists of 4 bytes. 
+  \newline
+  First bit is used to indicate the last packet. 
+  \newline
+  31 bits left for sequence number
+
+\end{frame}
+
+
+\begin{frame}[fragile]{TX description}
+	\begin{block}{TX description}
+		\begin{enumerate}
+		\item Read file
+		\begin{enumerate}
+			\item Read file in buffer
+			\item Calculate CRC32 and add to filebytes
+			\item Split filebytes in packages
+		\end{enumerate}
+		\item Initialize UPD Socket
+		\item Initialize Acknowlegments array to obtain transmitted packets
+		\item Transmit one block of packets
+		\begin{enumerate}
+			\item For every packet in block check if acknolegment was recieved, if not - send a packet.
+			\item If last packet is reached, then start with first again,
+		\end{enumerate}
+		\item Wait for acknowlegments \{DELAY\} microseconds.
+		\begin{enumerate}
+			\item Write every sequence number from acknowlegment packet in Acknowlegments array,
+			\item If all packets were acknowlegment - end transmission. Else - goto punkt 4.
+		\end{enumerate}
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]{RX description}
+	\begin{block}{RX description}
+		\begin{enumerate}
+		\item Initialize UPD Socket
+		\item Listen for incomming packages
+		\begin{enumerate}
+			\item Write databits from package in a memory
+			\item If last-package-bit was seen, the size of file and Amount of packets can be defined.
+			\item If not all of package were recieved, then goto punkt 2.
+		\end{enumerate}
+		\item Assemble a file
+		\item Calculate CRC32 and compare with recieved one.
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	REMOTE AND LOCAL THREATS
+%----------------------------------------------------------------------------------------
+
+% \section{Remote and Lokale Gefahren}
+
+% \begin{frame}[fragile]{Einleitung - Statistiken}
+%   Most commonly exploited applications worldwide as of 3rd quarter 2017
+%   \newline
+%   \includegraphics[scale=0.5]{cyberattacks_2017}
+%   \newline
+%   Quelle: www.statista.com
+% \end{frame}
+
+
+% %----------------------------------------------------------------------------------------
+% %	EXPLOITS
+% %----------------------------------------------------------------------------------------
+
+% \section{Exploits}
+
+% \begin{frame}[fragile]{Code Injection}
+%   Code Injection ist das ausnutzen von Bugs durch Eingabe von ungewollten Parametern, um dadurch die Ausf\"urung zu ver\"andern.
+%   \newline
+%   Kann folgende Auswirkungen haben:
+%   \begin{itemize}
+%     \item Daten in SQL Tabellen verändern
+%     \item Installieren von Malware durch Server-Scripting Code zB. PHP
+%     \item Root Privilegien bekommen, durch Shell Injection oder Windows Service
+%     \item Angtiff auf Web User durch Cross-Site-Scripting in HTML/JS
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}[fragile]{Code Injection - Masnahmen}
+%   Kann erschwert werden durch:
+%   \begin{itemize}
+%     \item API's benutzen, die sicher gegen\"uber allen Symbolen sind, indem der Eingabestring compiliert und gefiltert wird.
+%     \item Whitelisting von erw\"unschten Parametern
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}[fragile]{SQL Injection}
+%   Ausnutzen von Sicherheitsl\"ucken in Zusammenhang mit SQL-Datenbanken.
+%   Ziele:
+%   \begin{itemize}
+%     \item Daten auszusp\"ahen oder zu ver\"andern
+%     \item Kontrolle \"uber Server zu erhalten
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}[fragile]{SQL Injection - Beispiel}
+%   Es wird zus\"atzlicher Code bei Aufruf eingeschleust, der die Bentzertabelle modifiziert.
+%   \newline
+%   \includegraphics[scale=0.5]{sql_injection_1}
+% \end{frame}
+
+% \begin{frame}[fragile]{Cross Site Scripting}
+%   test frame
+% \end{frame}
+
+% \begin{frame}[fragile]{Cross Site Scripting - reflektierte Angriffe}
+%   Eine Benutzereingabe wird direkt vom Server wieder zur\"uck gesendet.
+%   Wenn diese Eingabe Scriptcode enth\"alt, die vom Browser des Nutzers interpretiert wird, kann dorrt Schadcode ausgef\"urt werden.
+%   Beispiel: Suchfunktion.
+%   \lstset{language=html, basicstyle=\tiny}
+%   \begin{lstlisting}
+%     http://example.com/?suche=Suchbegriff
+%     http://example.com/?suche=<script type="text/javascript">alert("XSS")</script>
+%     <p>Sie suchten nach: <script type="text/javascript">alert("XSS")</script></p>
+%   \end{lstlisting}
+%   Ausgenutzt wird das dynamisch generierte Websiten ihren Ihnalt an \"ubergebene Eingabewerte anpassen, durch HTTP-GET und HTTP-POST.
+%   Dieser Typ heisst auch nicht-persistent, da der Schadcode nur tempr\"ar bei der jeweiligen Generierung der Website eingeschleust wird.
+% \end{frame}
+
+% \begin{frame}[fragile]{Cross Site Scripting - persistente Angriffe}
+%   Unterscheidet sich von reflektierenden Angriffen nur dadurch, dass der Schadcode auf dem Server gespeichert wird, wodurch er bei jeder Anfrage asugef\"urt wird.
+%   Ist bei Webanwendungen m\"oglich, die Benutzereingaben serverseitig ohne Pr\"ufung speichern und diese sp\"ater wieder ausliefert.
+%   Beispiel Posting auf Website:
+%   \lstset{language=html, basicstyle=\tiny}
+%   \begin{lstlisting}
+%     Eine sehr gutes Produkt!<script type="text/javascript">alert("XSS")</script>
+%   \end{lstlisting}
+% \end{frame}
+
+% \begin{frame}[fragile]{Cross Site Scripting - DOM-basierte Angriffe}
+%   Webapplikation auf dem Server ist hier nicht beteiligt, wird auch lokales XSS genannt.
+%   Somit auch statische HTML Seiten mit JavaScript unterst\"utzung anf\"allig f\"ur diesen Angriff.
+% \end{frame}
+
+% \begin{frame}[fragile]{Cross Site Scripting - Schutzma{\ss}nahmen}
+%   \begin{itemize}
+%     \item Anstatt Blacklist mit b\"osen Eingaben zu f\"uhren, besser Whitelist mit buten Eingaben. Da die Anzahl der Angriffmethoden nicht bekannt ist.
+%     \item HTML-Metazeichen durch Zeichenreferenzen ersetzen, damit sie als normale Zeichen behandelt werden
+%     \item Sicher programmierte Anwendung sind Web Apllication Firewalls (WAF) vorzuziehen.
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}[fragile]{Directory Traversal Attack}
+%   Ein HTTP Angriff, bei dem ein Angreifer zugriff auf gesperrte Verzeichnisse gewinnt und Code auserhalb des root Verzeichnisses ausf\"uhrt.
+% \end{frame}
+
+% \begin{frame}[fragile]{Directory Traversal Attack - Schutzma{\ss}nahmen}
+%   test frame
+% \end{frame}
+
+% \begin{frame}[fragile]{Format String}
+%   test frame
+% \end{frame}
+
+% \begin{frame}[fragile]{Format String - Schutzma{\ss}nahmen}
+%   test frame
+% \end{frame}
+
+% \begin{frame}[fragile]{Buffer Overflows}
+%   test frame
+% \end{frame}
+
+% \begin{frame}[fragile]{Buffer Overflows - Type-Safe Sprachen}
+%   Compiler stellt Typsicherheit her, indem Datentypen gepr\"uft werden, damit keine Typverletzungen entstehen.
+%   Wenn Typverletzungen sp\"atestens zur Laufzeit erkannt werden, spricht man von Typsicheren Programmiersprachen.
+  
+%   Beispiel String in Python, es reicht der Variable einen String zuzuweisen.
+%   %\lstset{language=python}
+%   \begin{lstlisting}[style=CStyle]
+%     mystring = "This is my string"
+%   \end{lstlisting}
+  
+%   Beispiel in C, es muss der Typ deklariert und auch der Speicher manuell reserviert werden.
+%   \begin{lstlisting}[style=CStyle]
+%     char mystring[20] = "This is my string";
+%   \end{lstlisting}
+%   Wenn man in C nun einen 30 Byte String zuweist entsteht eine Overflow Situation.
+% \end{frame}
+
+% \begin{frame}[fragile]{Buffer Overflows - Schutzma{\ss}nahmen}
+%   \begin{itemize}
+%     \item Type-Safe Programmiersprachen verwenden, welche Memory Management zB Java, Python, Ruby,...
+%     \item \"Uberpr\"ufen auf Overflows bei User Eingaben
+%     \item in C sichere Methoden verwenden, \textit{get\_s} anstatt \textit{get}. 
+%   \end{itemize}
+% \end{frame}
+
+% %----------------------------------------------------------------------------------------
+% %	OPEN SOURCE UND PROPERTÄRE SOFTWARE
+% %----------------------------------------------------------------------------------------
+
+% \section{Open Source und Propert\"are Software}
+
+% \begin{frame}[fragile]{Open Source Vorteile}
+%   \begin{itemize}
+%     \item Programmcode kann \"uberpr\"uft werden, Sicherheitsl\"ucken fallen leichter auf
+%     \item Erschwert implementierung von Backdoors
+%     \item Software kann von der Communtiy weiterentwickelt oder geforkt werden
+%     \item Bestimmte Funktionen k\"onnen abgedreht werden
+%   \end{itemize}
+% \end{frame}
+
+% %----------------------------------------------------------------------------------------
+% %	FIRMWARE SECURITY
+% %----------------------------------------------------------------------------------------
+
+% \section{Firmware Security}
+% \begin{frame}[fragile]{Spezialfall Firmware}
+%   \begin{itemize}
+%     \item Ger\"at wurde bereits verkauft, kein Interesse des Herstellers an Updates
+%     \item Zu viele verschiedene Ger\"ate - Unm\"oglicher Verwaltungsaufwand
+%       \begin{itemize}
+%         \item Alleine Samsung hat bis 2014 56 verscheidene Smartphones pro Jahr herausgebracht
+%       \end{itemize}
+%     \item Firmware agiert in Schicht unter Betriebssystem - Angriffe k\"onnen vom Benutzer nicht erkannt oder verhindert werden
+%     \item Firmware meist Closed Source - keine Weiterentwicklung der Community
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}[fragile]{Sicherheitsl\"ucken in Firmware - Beispiele}
+%   \begin{itemize}
+%     \item BadUSB - Eingabeger\"ate, USB-Sticks, Speichermedien, Kameras, ...
+%     \item Intel ME - Betriebssystem im Prozessor (AMD PSP)
+%       \begin{itemize}
+%         \item Funktionsweise undokumentiert
+%         \item Kritische L\"ucke 2017 entdeckt
+%         \item NSA und Google haben Intel ME abgeschaltet auf ihren Ger\"aten
+%       \end{itemize}
+%     \item Android
+%       \begin{itemize}
+%         \item praktisch alle Android Ger\"ate ohne Sicherheitupdates
+%       \end{itemize}
+%     \item Router, Smart TV's, IoT-Devices - Millionen angreifbare Ger\"ate in Haushalten, Firmen und Beh\"orden
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}[fragile]{Smartphones Sicherheitsupdates}
+%   \includegraphics[scale=0.5]{android_sub}
+%   \newline
+% \end{frame}
+
+
+\end{document}
