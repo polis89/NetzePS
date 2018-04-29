@@ -25,6 +25,8 @@ public class RX{
 	private static final int MAX_BUF_SIZE = 8192;
 
   private static int port = 4711; //Default port
+  
+  private static int ack_port = 4712;
 
 	private static byte[] buf = new byte[1024]; //Default buffer
 
@@ -74,19 +76,22 @@ public class RX{
 		while(true)
 		{
 	
-			System.out.println("==========");
+			 System.out.println("==========");
 
-			DatagramPacket packet = new DatagramPacket(buf, buf.length);
+			 DatagramPacket packet = new DatagramPacket(buf, buf.length);
 
-			socket.receive(packet);
+			 socket.receive(packet);
 
+			 DataInputStream dis = new DataInputStream(new ByteArrayInputStream(packet.getData())); //Make input stream from datagramm
 
-
-			DataInputStream dis = new DataInputStream(new ByteArrayInputStream(packet.getData())); //Make input stream from datagramm
-
-			System.out.println(packet.getLength());
+			 System.out.println(packet.getLength());
 			 byte[] temp = packet.getData();
 			 int sequenzeNumInt = dis.readInt();
+			 
+			 byte[] sequenzNummer = convertIntTo4Bytes(sequenzeNumInt);
+			 InetAddress ia = InetAddress.getByName( "127.0.0.1" );
+			 DatagramPacket seq_ack = new DatagramPacket(sequenzNummer,sequenzNummer.length,ia,ack_port);
+			 socket.send(seq_ack);
 			 
 			 if(temp[0]==1)
 			 {
@@ -178,7 +183,7 @@ public class RX{
 	        Graphics2D g2 = bufferedImage.createGraphics();
 	        g2.drawImage(image, null, null);
 
-	        File imageFile = new File("New_Image.jpeg");
+	        File imageFile = new File("New_Image.jpg");
 	        ImageIO.write(bufferedImage, "jpg", imageFile);
 	    }
 	 
@@ -199,6 +204,23 @@ public class RX{
 	 {
 	     return bytes[0] << 24 | (bytes[1] & 0xFF) << 16 | (bytes[2] & 0xFF) << 8 | (bytes[3] & 0xFF);
 	 }
+	 
+	 private static byte[] convertIntTo4Bytes(long value)
+	  {
+
+	    byte [] data = new byte[4];
+
+	    data[3] = (byte) value;
+
+	    data[2] = (byte) (value >>> 8);
+
+	    data[1] = (byte) (value >>> 16);
+
+	    data[0] = (byte) (value >>> 24);
+
+	    return data;
+
+	  }
 	
 }
 	 
