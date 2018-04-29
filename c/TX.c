@@ -31,7 +31,7 @@ unsigned short portRX = 4711; //Default port
 int packet_size = 1000; 
 int packet_block_size = 100; //Amount of packets between delay 
 int delay = 200; //Delay between blocks of packet
-unsigned char *file_name = "to_send.jpg";
+unsigned char *file_name = "to_send3.jpg";
 
 int packet_payload, packets_amount; 
 int sock, sock_for_acks; //Socket descriptors
@@ -75,6 +75,8 @@ int getCRC32(){
 
     crc_32_val        ^= 0xffffffffL;
 
+    printf( "CRC32              = 0x%08" PRIX32 "  /  %" PRIu32 "\n"
+            , crc_32_val,         crc_32_val     );
     return 0;
 }
 
@@ -192,7 +194,6 @@ void readFileInBuffer(){
     fseek(fileptr, 0, SEEK_END);          // Jump to the end of the file
     filelen = ftell(fileptr);             // Get the current byte offset in the file
     rewind(fileptr);                      // Jump back to the beginning of the file
-    printf("TEST\n");
     getCRC32();
     printf("File size: %zu Bytes\n", filelen);
     filelen += 4; //For crc32
@@ -201,16 +202,13 @@ void readFileInBuffer(){
 
     printf("Packets amount: %d\n", packets_amount);
 
-    printf("TEST1\n");
     
     unsigned char *fileBuff = (char *)malloc((filelen)*sizeof(unsigned char));              
-    printf("TEST2\n");
     int read = fread(fileBuff, 1, filelen-4, fileptr);
     fileBuff[filelen-1] = crc_32_val;
     fileBuff[filelen-2] = crc_32_val >> 8;
     fileBuff[filelen-3] = crc_32_val >> 16;
     fileBuff[filelen-4] = crc_32_val >> 24;
-    printf("TEST3\n");
     printf("CRC32 for File: 0x%02" PRIX16 " 0x%02" PRIX16 " 0x%02" PRIX16 " 0x%02" PRIX16 "\n", fileBuff[filelen-4], fileBuff[filelen-3], fileBuff[filelen-2], fileBuff[filelen-1]);
 
     for(int i = 0; i < packets_amount; i++){
