@@ -44,6 +44,11 @@ int slen = sizeof(addr_to_send);
 int slenme = sizeof(addr_me); 
 char *datagram;
 unsigned char buf[1024]; //Buffer for Acks
+
+// For Speed tests
+struct timespec tstart={0,0}, tend={0,0};
+double timeEnd;
+double timeStart;
  
 void die(char *s)
 {
@@ -187,7 +192,7 @@ void readFileInBuffer(){
     fseek(fileptr, 0, SEEK_END);          // Jump to the end of the file
     filelen = ftell(fileptr);             // Get the current byte offset in the file
     rewind(fileptr);                      // Jump back to the beginning of the file
-
+    printf("TEST\n");
     getCRC32();
     printf("File size: %zu Bytes\n", filelen);
     filelen += 4; //For crc32
@@ -196,12 +201,16 @@ void readFileInBuffer(){
 
     printf("Packets amount: %d\n", packets_amount);
 
-    unsigned char fileBuff[filelen];
+    printf("TEST1\n");
+    
+    unsigned char *fileBuff = (char *)malloc((filelen)*sizeof(unsigned char));              
+    printf("TEST2\n");
     int read = fread(fileBuff, 1, filelen-4, fileptr);
     fileBuff[filelen-1] = crc_32_val;
     fileBuff[filelen-2] = crc_32_val >> 8;
     fileBuff[filelen-3] = crc_32_val >> 16;
     fileBuff[filelen-4] = crc_32_val >> 24;
+    printf("TEST3\n");
     printf("CRC32 for File: 0x%02" PRIX16 " 0x%02" PRIX16 " 0x%02" PRIX16 " 0x%02" PRIX16 "\n", fileBuff[filelen-4], fileBuff[filelen-3], fileBuff[filelen-2], fileBuff[filelen-1]);
 
     for(int i = 0; i < packets_amount; i++){
@@ -257,6 +266,12 @@ void printPackets(){
     }
 }
 
+double calculateSpeed() {
+    double time = timeEnd - timeStart;
+
+    return (filelen-4) / time / 1000 * 8;
+}
+
 int main(int argc, char *argv[])
 {
     switch(argc) {
@@ -278,7 +293,15 @@ int main(int argc, char *argv[])
     readFileInBuffer();
     initUPDSocket();
     // printPackets();
+
+    clock_gettime(CLOCK_MONOTONIC, &tstart);
     sendFile();
+    clock_gettime(CLOCK_MONOTONIC, &tend);
+    timeEnd = (double)tend.tv_sec + 1.0e-9*tend.tv_nsec;
+    timeStart = (double)tstart.tv_sec + 1.0e-9*tstart.tv_nsec;
+    double speed = calculateSpeed();
+    printf("Time elapsed: %.2lf s\n", timeEnd - timeStart);
+    printf("Communication speed: %.2lf Mbps\n", speed);
  
     return 0;
 }

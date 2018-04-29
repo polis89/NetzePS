@@ -74,9 +74,9 @@ void checkCRC32(){
         crc_32_val[3] == (unsigned char)(crc_32_calc >> 8) &&
         crc_32_val[2] == (unsigned char)(crc_32_calc >> 16) &&
         crc_32_val[1] == (unsigned char)(crc_32_calc >> 24) ){
-        printf("crc_32 is correct");
+        printf("crc_32 is correct\n");
     }else{
-        printf("crc_32 is NOT correct");
+        printf("crc_32 is NOT correct\n");
     }
 }
 
@@ -84,7 +84,8 @@ void assembleFile(){
     printf("\n=== Assemble file ===\n");
     dataSize += packet_payload * (packets_amount-1);
     printf("File Size: %d\n", dataSize);
-    char fileString[dataSize+1]; // for \0
+    // char fileString[dataSize+1]; // for \0
+    char *fileString = (char *)malloc((dataSize+1)*sizeof(unsigned char));    
     int packetSize = packet_payload;
     for(int i = 0; i < packets_amount; i++){
         if(i == packets_amount - 1)
@@ -146,7 +147,7 @@ int main(int argc, char *argv[])
     }
 
     //Make new DataBuffer
-    int allocated = 10000;
+    int allocated = 50000;
     dataRecieved = (DataRecieved *) malloc (sizeof (DataRecieved));
     dataRecieved->allocated = allocated;
     dataRecieved->packets = (Packet **) calloc (dataRecieved->allocated, sizeof (Packet *));
@@ -243,14 +244,6 @@ int main(int argc, char *argv[])
             }
             free(dataRecieved->packets);
             free(dataRecieved);
-
-            dataRecieved = (DataRecieved *) malloc (sizeof (DataRecieved));
-            dataRecieved->allocated = 10000;
-            dataRecieved->packets = (Packet **) calloc (dataRecieved->allocated, sizeof (Packet *));
-            summ = 0;
-            packets_amount = -1;
-            packet_payload = -1;
-            usleep(100000); //Sleep between files
         }
 
     }
