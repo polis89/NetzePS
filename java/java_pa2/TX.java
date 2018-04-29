@@ -1,4 +1,3 @@
-
 /**
 
  * TX
@@ -12,7 +11,9 @@
  */
 
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 
@@ -30,17 +31,23 @@ class TX
 {
 
   private static int port = 4711;
+  
+  private static int ack_port = 4712;
 
   private static int delay = 0;
   
-  private static int intervall = 10;
+  private static int packet_block_size = 10;
   
   private static int msgsize = 15;
-
+  
+  private static boolean[] ack_seq;
+  
+  static ArrayList<DatagramPacket> packets;
 
 
   public static void main( String[] args ) throws IOException, InterruptedException
   {
+	 packets = new ArrayList<DatagramPacket>();
 	ArrayList<Byte> bytes = new ArrayList<Byte>();
 	long TotalByteAmount = 0;
 	long TotalTime = 0;
@@ -58,7 +65,7 @@ class TX
 
     if (args.length > 2)
     {
-        intervall = Integer.parseInt(args[2]);
+    	packet_block_size = Integer.parseInt(args[2]);
     }
     
     if (args.length > 3)
@@ -66,7 +73,7 @@ class TX
     	msgsize = Integer.parseInt(args[2]);
     }
     
-    String s = "BaseImage.jpeg";
+    String s = "BaseImage.jpg";
 	File file = new File(s);
 	 
     FileInputStream fis = new FileInputStream(file);
@@ -87,9 +94,7 @@ class TX
     }
 
     byte[] fileContent = bos.toByteArray();
-    byte[] temp = fileContent;
-    
- 
+   
 	
     InetAddress ia = InetAddress.getByName( "127.0.0.1" );
 
@@ -99,7 +104,7 @@ class TX
 
     int anz_pakete = fileContent.length/(msgsize-4);  //
 
-    
+    ack_seq = new boolean[anz_pakete];
     
     while ( count < anz_pakete )
     {
@@ -180,6 +185,10 @@ class TX
  
       DatagramPacket packet = new DatagramPacket( data, data.length, ia, port ); 
 
+      packets.add(packet);
+      
+      
+      
       System.out.print( "DatagramPacket: ");
 
       for(int i = 0; i < data.length; i++)
@@ -203,21 +212,42 @@ class TX
 
       System.out.println();
 
-      DatagramSocket dSocket = new DatagramSocket();
+      DatagramSocket dSocket = new DatagramSocket(port);
 
       dSocket.send( packet );
 
       System.out.println( "Paket gesendet" );
       long TimeEnd = System.currentTimeMillis();
       TotalTime += TimeEnd - TimeBegin;
-      
-      System.out.println("Speed:" + (TotalByteAmount/TotalTime) + " B/ms");
+      if(count==anz_pakete-1)
+      {
+    	  System.out.println("Speed:" + (TotalByteAmount/TotalTime) + " B/ms");
+    	  for(int i = 0;i<ack_seq.length;i++)
+    	  {
+    		  if(ack_seq[i]==false)
+    			  dSocket.send(packets.get(i));
+    	  }
+      }
 
       count++;
       
-      if(count%intervall == 0)  
+      
+      
+      DatagramPacket ack_packet = new DatagramPacket(buf, buf.length);
+      
+      if(count%packet_block_size == 0) 
+      {
+    	  DatagramSocket Socket = new DatagramSocket(ack_port);
     	  TimeUnit.MICROSECONDS.sleep(delay);
 
+		 Socket.receive(ack_packet);
+		  
+		  DataInputStream ack_dis = new DataInputStream(new ByteArrayInputStream(ack_packet.getData())); 
+	      
+		  int ack_sequenznummer = ack_dis.readInt();
+		  
+		  ack_seq[ack_sequenznummer] = true;
+      }
     }
 
   }
