@@ -39,7 +39,6 @@ class TX
   private static boolean[] ack_seq;
 
   static ArrayList<DatagramPacket> packets;
-  static ArrayList<Byte> bytes;
   private static byte[] contentToTransmit;
   private static int anz_pakete;
   private static DatagramSocket dSocket, dSocketAck;
@@ -73,10 +72,8 @@ class TX
     }
 
     packets = new ArrayList<DatagramPacket>();
-    bytes = new ArrayList<Byte>();
     dSocket = new DatagramSocket();
     dSocketAck = new DatagramSocket(ack_port);
-    ArrayList<Byte> bytes = new ArrayList<Byte>();
     ia = InetAddress.getByName( "127.0.0.1" );
    
     byte[] fileContent = readFile();
@@ -99,8 +96,19 @@ class TX
     System.out.println(" anz_pakete " + anz_pakete);
     ack_seq = new boolean[anz_pakete];
 
+    long start = System.nanoTime();
     sendFile();
-    //   long TimeEnd = System.currentTimeMillis();
+    long end = System.nanoTime();
+    long microseconds = TimeUnit.NANOSECONDS.toMicros(end - start);
+
+    double speed = 8 * (double)(contentToTransmit.length-4) / microseconds ;
+    System.out.println("(double)(contentToTransmit.length-4): "+ (double)(contentToTransmit.length-4));
+    System.out.println("(double)(contentToTransmit.length-4) / microseconds : "+ (double)(contentToTransmit.length-4) / microseconds );
+    System.out.println("File size: "+ (contentToTransmit.length-4) +" Bytes");
+    // System.out.println("Time elapsed: "+microseconds+" microseconds");
+    System.out.printf("Time elapsed: %.2f s\n", microseconds / 1000000.0);
+    // System.out.println("Communication speed: "+speed+" Mbps");
+    System.out.printf("Communication speed: %.2f Mbps\n",speed);
 
   }
 

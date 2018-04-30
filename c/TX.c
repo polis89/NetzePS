@@ -267,7 +267,7 @@ void printPackets(){
 double calculateSpeed() {
     double time = timeEnd - timeStart;
 
-    return (filelen-4) / time / 1000 * 8;
+    return 8 * (filelen-4) / time / 1000000.0;
 }
 
 int main(int argc, char *argv[])
