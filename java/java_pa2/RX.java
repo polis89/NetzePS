@@ -120,7 +120,7 @@ public class RX{
 		     
 			 socket.send(seq_ack);
 				
-			 sequenzeNumInt = (int) (sequenzeNummer_buf[3] + sequenzeNummer_buf[2] * 256 + sequenzeNummer_buf[1] * Math.pow(256.0, 2) + ack_data[0] * Math.pow(256.0, 3));
+			 sequenzeNumInt = fromByteArray(ack_data);
 			 			 
 			 ReceivedData d = new ReceivedData(sequenzeNumInt,data);
 			 DataReceived.add(d);	
@@ -143,11 +143,6 @@ public class RX{
 				 
 			 System.out.print("Data: "  );
 			 
-		//	 for(int i = 4;i<packet.getLength();i++)
-		//	 {
-			//	 Image.add(temp[i]);
-		//		 System.out.print(temp[i] + ":"  );
-		//	 }
 			 System.out.println("");
 			
 			System.out.println("Recieved: " + ((++count)-1) + " packets.");
@@ -161,9 +156,9 @@ public class RX{
 					Collections.sort(DataReceived);
 					List<byte[]> img_al = new ArrayList<byte[]>();
 					
-					for(int i =0;i<DataReceived.size();i++)
+					for(int i =0;i<DataReceived.size()-1;i++)
 					{
-					
+						
 						img_al.add(DataReceived.get(i).data);
 						
 					}
@@ -184,6 +179,7 @@ public class RX{
 					{
 						img_bytes[i] = img.get(i);		
 					}
+	
 									
 					convertByteToImage(img_bytes);
 					
