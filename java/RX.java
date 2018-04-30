@@ -96,8 +96,20 @@ public class RX{
 
   }
 
-  private static void assembleFile(){
+  private static void assembleFile() throws IOException{
+		System.out.println("assembleFile");
+  	FileOutputStream fos = new FileOutputStream("output.jpg");
+  	for(int i = 0; i < packets_amount-1; i++){ArrayList<Byte> packet = recievedData.get(i);
+  		for(int j = 0; j < packet_payload; j++){
+    		fos.write(packet.get(j));
+  		}
+  	}
+  	ArrayList<Byte> lastPackage = recievedData.get(packets_amount-1);
+		System.out.println("last packet size: " + lastPackage.size());
 
-
+  	for(int i = 0; i < lastPackage.size()-4; i++){
+    	fos.write(lastPackage.get(i));
+  	}
+    fos.close();
   }
 }
