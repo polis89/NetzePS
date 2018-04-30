@@ -1,4 +1,3 @@
-
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.MediaTracker;
@@ -26,9 +25,15 @@ public class RX{
 
   private static int port = 4711; //Default port
   
-  private static int ack_port = 4712;
+  private static int ack_port = 4700;
 
-	private static byte[] buf = new byte[1024]; //Default buffer
+  private static byte[] buf = new byte[1024]; //Default buffer
+	
+  static int packets_amount = -1; //-1 for unbestimmt
+  
+  static int summ = 0; //Summ recieve
+  
+  static ArrayList<ReceivedData> DataReceived = new ArrayList<ReceivedData>();
 
 	public static void main(String[] args) throws IOException, InterruptedException
 	{
@@ -73,33 +78,58 @@ public class RX{
 
 	
 		ArrayList<Integer> MsgBinary = new ArrayList<Integer>();
+		InetAddress ia = InetAddress.getByName( "127.0.0.1" );
 		while(true)
 		{
-	
+			 
 			 System.out.println("==========");
 
 			 DatagramPacket packet = new DatagramPacket(buf, buf.length);
 
 			 socket.receive(packet);
+			 
+			 summ++;
 
 			 DataInputStream dis = new DataInputStream(new ByteArrayInputStream(packet.getData())); //Make input stream from datagramm
 
 			 System.out.println(packet.getLength());
 			 byte[] temp = packet.getData();
-			 int sequenzeNumInt = dis.readInt();
-			 
-			 byte[] sequenzNummer = convertIntTo4Bytes(sequenzeNumInt);
-			 InetAddress ia = InetAddress.getByName( "127.0.0.1" );
-			 DatagramPacket seq_ack = new DatagramPacket(sequenzNummer,sequenzNummer.length,ia,ack_port);
-			 socket.send(seq_ack);
-			 
-			 if(temp[0]==1)
+			 byte[] data = new byte[temp.length-4];
+			 for(int i = 0;i<data.length;i++)
 			 {
-				 sequenzeNumInt = (int) (sequenzeNumInt - Math.pow(2, 24));
-				 
+				 data[i] = temp[i+4];
 			 }
-			
+			 int sequenzeNumInt = dis.readInt();
+		 
+			 
+			 byte[] sequenzeNummer_buf = convertIntTo4Bytes(sequenzeNumInt);
+			 
+			 byte[] ack_data = new byte[5];   
+			 
+			 ack_data[0] = (byte) (sequenzeNummer_buf[0] & 0b01111111); //Remove LastFragmentbit
 
+		     ack_data[1] = sequenzeNummer_buf[1];
+
+		     ack_data[2] = sequenzeNummer_buf[2];
+
+		     ack_data[3] = sequenzeNummer_buf[3];
+
+		     ack_data[4] = '\0';
+
+		     DatagramPacket seq_ack = new DatagramPacket(ack_data,ack_data.length,ia,ack_port);
+		     
+			 socket.send(seq_ack);
+				
+			 sequenzeNumInt = (int) (sequenzeNummer_buf[3] + sequenzeNummer_buf[2] * 256 + sequenzeNummer_buf[1] * Math.pow(256.0, 2) + ack_data[0] * Math.pow(256.0, 3));
+			 			 
+			 ReceivedData d = new ReceivedData(sequenzeNumInt,data);
+			 DataReceived.add(d);	
+					 
+			 if((sequenzeNummer_buf[0] & 0b10000000) == 0b10000000)
+			 {
+					packets_amount = sequenzeNumInt  + 1;
+			 }	
+			 
 			 System.out.println("Sequenz Nummer: " + sequenzeNumInt);
 
 		      if(lastSeqNum < sequenzeNumInt && lastSeqNum + 1 != sequenzeNumInt)
@@ -110,61 +140,72 @@ public class RX{
 		      }
 		
 		      lastSeqNum = sequenzeNumInt;
-		
-			  
-			
-			 
+				 
 			 System.out.print("Data: "  );
-			 for(int i = 4;i<packet.getLength();i++)
-			 {
-				 Image.add(temp[i]);
-				 System.out.print(temp[i] + ":"  );
-			 }
+			 
+		//	 for(int i = 4;i<packet.getLength();i++)
+		//	 {
+			//	 Image.add(temp[i]);
+		//		 System.out.print(temp[i] + ":"  );
+		//	 }
 			 System.out.println("");
 			
-					
-		
 			System.out.println("Recieved: " + ((++count)-1) + " packets.");
 		
 			System.out.println("Lost: " + lostPackets + " packets.");
 		
 			
-				if(temp[0]==1)
+			
+				if(packets_amount == summ)
 				{
-					for(int i =0;i<Image.size();i++)
+					Collections.sort(DataReceived);
+					List<byte[]> img_al = new ArrayList<byte[]>();
+					
+					for(int i =0;i<DataReceived.size();i++)
 					{
-						int[] tem = inttobyte(Image.get(i));
-						for(int j = 0;j<tem.length;j++)
+					
+						img_al.add(DataReceived.get(i).data);
+						
+					}
+					
+					List<Byte> img = new ArrayList<Byte>();
+					for(int i = 0;i<img_al.size();i++)
+					{
+						byte[] tempor =  img_al.get(i);
+						for(int j = 0;j<tempor.length;j++)
 						{
-							MsgBinary.add(tem[j]);
+							
+							img.add(tempor[j]);
 						}
 					}
 					
-					byte[] img = new byte[Image.size()-4];
-					
-					for(int i = 0;i<img.length;i++)
+					byte[] img_bytes = new byte[img.size()];
+					for(int i = 0;i<img_al.size();i++)
 					{
-						img[i] = Image.get(i);
+						img_bytes[i] = img.get(i);		
 					}
-					convertByteToImage(img);
+									
+					convertByteToImage(img_bytes);
+					
 					byte[] crcvalue = new byte[4];
 					for(int i = 0;i<4;i++)
 					{
 						crcvalue[i] = Image.get(i+Image.size()-4);
 					}
 					CRC32 crc = new CRC32();
-					crc.update(img);
+					crc.update(img_bytes);
 				   
 				    System.out.println("CRC32:   " + crc.getValue());
-				    System.out.println("Checksum:" + fromByteArray(crcvalue));     				
+				    System.out.println("Checksum:" + fromByteArray(crcvalue));   
 				}
+			}
 		}
-	}
+	
 	
 	 
 	 private static void convertByteToImage(byte[] bytearray) throws IOException
 	    {
-		 ByteArrayInputStream bis = new ByteArrayInputStream(bytearray);
+		   ByteArrayInputStream bis = new ByteArrayInputStream(bytearray);
 	       java.util.Iterator<ImageReader> readers = ImageIO.getImageReadersByFormatName("jpg");
 	 
 	        
@@ -183,7 +224,7 @@ public class RX{
 	        Graphics2D g2 = bufferedImage.createGraphics();
 	        g2.drawImage(image, null, null);
 
-	        File imageFile = new File("New_Image.jpg");
+	        File imageFile = new File("C:\\Users\\luk___000\\\\Desktop\\bildnvs\\New_Image.jpg");
 	        ImageIO.write(bufferedImage, "jpg", imageFile);
 	    }
 	 
@@ -221,6 +262,23 @@ public class RX{
 	    return data;
 
 	  }
+	 
+	 static class ReceivedData implements Comparable<ReceivedData>
+	 {
+		 Integer seq_nr;
+		 byte[] data;
+		 
+		 public ReceivedData(int number, byte[] bytes)
+		 {
+			 this.seq_nr = number;
+			 this.data = bytes;		 
+		 }
+
+		public int compareTo(ReceivedData arg0) {
+			
+			return this.seq_nr.compareTo(arg0.seq_nr);
+		}
+	 }
 	
 }
 	 
