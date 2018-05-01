@@ -8,6 +8,7 @@
 import java.io.*;
 import java.net.*;
 import java.util.*;
+import java.util.zip.CRC32;
 
 public class RX{
 	private static final int MAX_BUF_SIZE = 8192;
@@ -20,6 +21,7 @@ public class RX{
 	private static int packet_payload = -1; //-1 for unbestimmt
 
   private static InetAddress ia;
+  private static CRC32 crc = new CRC32();
 
 	public static void main(String[] args) throws IOException, InterruptedException{
 
@@ -82,6 +84,7 @@ public class RX{
 		System.out.println("recievedData size (in packets): " + recievedData.size());
 
 		assembleFile();
+		crc32check();
 	}
 
   private static byte[] convertIntTo4Bytes(long value){
@@ -99,9 +102,11 @@ public class RX{
   private static void assembleFile() throws IOException{
 		System.out.println("assembleFile");
   	FileOutputStream fos = new FileOutputStream("output.jpg");
-  	for(int i = 0; i < packets_amount-1; i++){ArrayList<Byte> packet = recievedData.get(i);
+  	for(int i = 0; i < packets_amount-1; i++){
+  		ArrayList<Byte> packet = recievedData.get(i);
   		for(int j = 0; j < packet_payload; j++){
     		fos.write(packet.get(j));
+    		crc.update(packet.get(j));
   		}
   	}
   	ArrayList<Byte> lastPackage = recievedData.get(packets_amount-1);
@@ -109,7 +114,31 @@ public class RX{
 
   	for(int i = 0; i < lastPackage.size()-4; i++){
     	fos.write(lastPackage.get(i));
+  		crc.update(lastPackage.get(i));
   	}
     fos.close();
   }
+  private static void crc32check(){
+		//From Packets
+		ArrayList<Byte> lastPackage = recievedData.get(packets_amount-1);
+		int lastPackage_s = lastPackage.size();
+		byte[] crcvalue = new byte[4];
+    // System.out.println("Last:   " + lastPackage.toString());
+
+		for(int i = 0;i<4;i++)		{
+			crcvalue[i] = lastPackage.get(lastPackage_s - 4 + i);
+		}
+    System.out.println("CRC32 calcuated:   " + crc.getValue());
+    System.out.println("CRC32 received: " + Integer.toUnsignedString(fromByteArray(crcvalue)));   
+    System.out.println("CRC32 received: " + (crcvalue[0] & 0xFF) + " "+ (crcvalue[1] & 0xFF) + " " + (crcvalue[2] & 0xFF) + " " + (crcvalue[3] & 0xFF));   
+    if(crc.getValue() == fromByteArray(crcvalue)){
+    	System.out.println("CRC32 is correct");
+    }else{
+    	System.out.println("CRC32 is NOT correct");
+    }
+  }
+	 private static int fromByteArray(byte[] bytes)
+	 {
+	     return (bytes[0] & 0xFF) << 24 | (bytes[1] & 0xFF) << 16 | (bytes[2] & 0xFF) << 8 | (bytes[3] & 0xFF);
+	 }
 }

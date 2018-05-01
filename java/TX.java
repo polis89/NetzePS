@@ -33,7 +33,7 @@ class TX
   private static int msgsize = 1000;
   private static int packet_block_size = 100;
   private static int delay = 200;
-  private static String fileName = "to_send.jpg";
+  private static String fileName = "to_send2.jpg";
 
   // Acks
   private static boolean[] ack_seq;
@@ -94,6 +94,7 @@ class TX
 
     anz_pakete = 1 + contentToTransmit.length/(msgsize-4);  //-4 for seq_num
     System.out.println(" anz_pakete " + anz_pakete);
+
     ack_seq = new boolean[anz_pakete];
 
     long start = System.nanoTime();
@@ -102,12 +103,8 @@ class TX
     long microseconds = TimeUnit.NANOSECONDS.toMicros(end - start);
 
     double speed = 8 * (double)(contentToTransmit.length-4) / microseconds ;
-    System.out.println("(double)(contentToTransmit.length-4): "+ (double)(contentToTransmit.length-4));
-    System.out.println("(double)(contentToTransmit.length-4) / microseconds : "+ (double)(contentToTransmit.length-4) / microseconds );
     System.out.println("File size: "+ (contentToTransmit.length-4) +" Bytes");
-    // System.out.println("Time elapsed: "+microseconds+" microseconds");
     System.out.printf("Time elapsed: %.2f s\n", microseconds / 1000000.0);
-    // System.out.println("Communication speed: "+speed+" Mbps");
     System.out.printf("Communication speed: %.2f Mbps\n",speed);
 
   }
@@ -185,12 +182,17 @@ class TX
       payloadSize = contentToTransmit.length - (msgsize - 4) * (anz_pakete - 1);
       System.out.println( "Last packet payload: " + payloadSize);
       sequenzNum[0] |= (1 << 7);
+      System.out.println( "Last packet payload: " + payloadSize);
+      // System.out.println(Arrays.toString(Arrays.copyOfRange(contentToTransmit, index * payloadSize, index * payloadSize + payloadSize)));
     }
     byte[] packetData = new byte[payloadSize + 4];
     //Copy seq_num in packet
     System.arraycopy(sequenzNum, 0, packetData, 0, 4); 
     //Copy data in packet
-    System.arraycopy(contentToTransmit, index * payloadSize, packetData, 4, payloadSize); 
+    System.arraycopy(contentToTransmit, index * (msgsize - 4), packetData, 4, payloadSize); 
+    if(index == anz_pakete-1){
+      System.out.println("CRC32 received:" + packetData[packetData.length - 4] + " "+ packetData[packetData.length - 3] + " " + packetData[packetData.length - 2] + " " + packetData[packetData.length - 1]);  
+    }
 
     DatagramPacket packet = new DatagramPacket( packetData, packetData.length, ia, port ); 
 
