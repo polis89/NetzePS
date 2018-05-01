@@ -1,0 +1,1390 @@
+./TX 4700 4711 1000 100 200 "to_send_100kb.jpg"
+==================================================
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 77.75 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.05 s
+Communication speed: 15.20 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 90.43 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.02 s
+Communication speed: 54.80 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 126.67 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.05 s
+Communication speed: 16.53 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 89.22 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 74.20 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.05 s
+Communication speed: 17.33 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 65.92 Mbps
+===
+==================================================
+./TX 4700 4711 1000 100 200 "to_send_1mb.jpg"
+==================================================
+packets_sended: 1099
+Time elapsed: 0.12 s
+Communication speed: 71.56 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.12 s
+Communication speed: 73.30 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.13 s
+Communication speed: 65.16 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.15 s
+Communication speed: 56.88 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.11 s
+Communication speed: 81.15 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.12 s
+Communication speed: 73.93 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.10 s
+Communication speed: 84.79 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.10 s
+Communication speed: 91.37 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.15 s
+Communication speed: 58.64 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.08 s
+Communication speed: 108.35 Mbps
+===
+==================================================
+./TX 4700 4711 1000 100 200 "to_send_10mb.jpg"
+==================================================
+packets_sended: 10549
+Time elapsed: 2.26 s
+Communication speed: 37.24 Mbps
+===
+packets_sended: 10549
+Time elapsed: 2.14 s
+Communication speed: 39.24 Mbps
+===
+packets_sended: 10549
+Time elapsed: 2.22 s
+Communication speed: 37.94 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.76 s
+Communication speed: 47.81 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.69 s
+Communication speed: 49.67 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.71 s
+Communication speed: 49.24 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.68 s
+Communication speed: 49.99 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.73 s
+Communication speed: 48.50 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.67 s
+Communication speed: 50.20 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.77 s
+Communication speed: 47.60 Mbps
+===
+==================================================
+./TX 4700 4711 1000 100 50 "to_send_100kb.jpg"
+==================================================
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 107.63 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 58.50 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 147.59 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.00 s
+Communication speed: 167.88 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 81.01 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 110.75 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 139.45 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 91.21 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 85.62 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 122.00 Mbps
+===
+==================================================
+./TX 4700 4711 1000 100 50 "to_send_1mb.jpg"
+==================================================
+packets_sended: 1099
+Time elapsed: 0.09 s
+Communication speed: 94.57 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.09 s
+Communication speed: 100.86 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.08 s
+Communication speed: 107.07 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.09 s
+Communication speed: 102.95 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.09 s
+Communication speed: 102.85 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.08 s
+Communication speed: 114.59 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.09 s
+Communication speed: 97.89 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.11 s
+Communication speed: 82.18 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.07 s
+Communication speed: 125.65 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.08 s
+Communication speed: 103.02 Mbps
+===
+==================================================
+./TX 4700 4711 1000 100 50 "to_send_10mb.jpg"
+==================================================
+==================================================
+packets_sended: 10549
+Time elapsed: 1.73 s
+Communication speed: 48.65 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.60 s
+Communication speed: 52.45 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.66 s
+Communication speed: 50.69 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.56 s
+Communication speed: 53.92 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.62 s
+Communication speed: 51.99 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.58 s
+Communication speed: 53.27 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.72 s
+Communication speed: 48.96 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.61 s
+Communication speed: 52.13 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.53 s
+Communication speed: 54.91 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.57 s
+Communication speed: 53.69 Mbps
+===
+==================================================
+./TX 4700 4711 1000 100 10 "to_send_100kb.jpg"
+==================================================
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 112.23 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 150.46 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 118.48 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 142.40 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 86.99 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 144.15 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 158.67 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 79.74 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 123.07 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 126.57 Mbps
+===
+==================================================
+./TX 4700 4711 1000 100 10 "to_send_1mb.jpg"
+==================================================
+packets_sended: 1099
+Time elapsed: 0.17 s
+Communication speed: 50.77 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.14 s
+Communication speed: 60.63 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.11 s
+Communication speed: 83.10 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.12 s
+Communication speed: 72.66 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.12 s
+Communication speed: 73.59 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.13 s
+Communication speed: 69.07 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.11 s
+Communication speed: 82.15 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.11 s
+Communication speed: 83.27 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.15 s
+Communication speed: 57.25 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.11 s
+Communication speed: 80.92 Mbps
+===
+==================================================
+./TX 4700 4711 1000 100 10 "to_send_10mb.jpg"
+==================================================
+packets_sended: 10549
+Time elapsed: 1.66 s
+Communication speed: 50.48 Mbps
+===
+packets_sended: 10549
+Time elapsed: 2.09 s
+Communication speed: 40.30 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.55 s
+Communication speed: 54.30 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.70 s
+Communication speed: 49.35 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.81 s
+Communication speed: 46.43 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.50 s
+Communication speed: 55.97 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.48 s
+Communication speed: 56.79 Mbps
+===
+packets_sended: 10549
+Time elapsed: 3.26 s
+Communication speed: 25.77 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.52 s
+Communication speed: 55.31 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.56 s
+Communication speed: 53.81 Mbps
+===
+==================================================
+./TX 4700 4711 2000 100 10 "to_send_100kb.jpg"
+
+==================================================
+packets_sended: 52
+Time elapsed: 0.01 s
+Communication speed: 127.15 Mbps
+===
+packets_sended: 52
+Time elapsed: 0.01 s
+Communication speed: 90.54 Mbps
+===
+packets_sended: 52
+Time elapsed: 0.00 s
+Communication speed: 249.92 Mbps
+===
+packets_sended: 52
+Time elapsed: 0.00 s
+Communication speed: 243.57 Mbps
+===
+packets_sended: 52
+Time elapsed: 0.00 s
+Communication speed: 220.37 Mbps
+===
+packets_sended: 52
+Time elapsed: 0.00 s
+Communication speed: 174.60 Mbps
+===
+packets_sended: 52
+Time elapsed: 0.01 s
+Communication speed: 70.59 Mbps
+===
+packets_sended: 52
+Time elapsed: 0.00 s
+Communication speed: 234.09 Mbps
+===
+packets_sended: 52
+Time elapsed: 0.00 s
+Communication speed: 220.69 Mbps
+===
+packets_sended: 52
+Time elapsed: 0.01 s
+Communication speed: 87.87 Mbps
+===
+==================================================
+./TX 4700 4711 2000 100 10 "to_send_1mb.jpg"
+
+==================================================
+packets_sended: 549
+Time elapsed: 0.08 s
+Communication speed: 105.83 Mbps
+===
+packets_sended: 549
+Time elapsed: 0.07 s
+Communication speed: 124.62 Mbps
+===
+packets_sended: 549
+Time elapsed: 0.05 s
+Communication speed: 179.69 Mbps
+===
+packets_sended: 549
+Time elapsed: 0.09 s
+Communication speed: 101.02 Mbps
+===
+packets_sended: 549
+Time elapsed: 0.08 s
+Communication speed: 108.57 Mbps
+===
+packets_sended: 549
+Time elapsed: 0.08 s
+Communication speed: 113.16 Mbps
+===
+packets_sended: 549
+Time elapsed: 0.08 s
+Communication speed: 104.04 Mbps
+===
+packets_sended: 549
+Time elapsed: 0.11 s
+Communication speed: 80.50 Mbps
+===
+packets_sended: 549
+Time elapsed: 0.10 s
+Communication speed: 87.01 Mbps
+===
+packets_sended: 549
+Time elapsed: 0.06 s
+Communication speed: 145.66 Mbps
+===
+==================================================
+./TX 4700 4711 2000 100 10 "to_send_10mb.jpg" 
+==================================================
+packets_sended: 5264
+Time elapsed: 0.89 s
+Communication speed: 94.22 Mbps
+===
+packets_sended: 5264
+Time elapsed: 0.84 s
+Communication speed: 99.57 Mbps
+===
+packets_sended: 5264
+Time elapsed: 0.93 s
+Communication speed: 90.16 Mbps
+===
+packets_sended: 5264
+Time elapsed: 0.78 s
+Communication speed: 107.52 Mbps
+===
+packets_sended: 5264
+Time elapsed: 0.82 s
+Communication speed: 102.16 Mbps
+===
+packets_sended: 5264
+Time elapsed: 0.89 s
+Communication speed: 94.24 Mbps
+===
+packets_sended: 5264
+Time elapsed: 0.84 s
+Communication speed: 100.15 Mbps
+===
+packets_sended: 5264
+Time elapsed: 0.80 s
+Communication speed: 105.18 Mbps
+===
+packets_sended: 5264
+Time elapsed: 1.08 s
+Communication speed: 78.06 Mbps
+===
+packets_sended: 5264
+Time elapsed: 0.80 s
+Communication speed: 105.63 Mbps
+===
+==================================================
+./TX 4700 4711 10000 100 10 "to_send_100kb.jpg"
+
+==================================================
+packets_sended: 11
+Time elapsed: 0.00 s
+Communication speed: 370.12 Mbps
+===
+packets_sended: 11
+Time elapsed: 0.00 s
+Communication speed: 518.38 Mbps
+===
+packets_sended: 11
+Time elapsed: 0.00 s
+Communication speed: 178.34 Mbps
+===
+packets_sended: 11
+Time elapsed: 0.00 s
+Communication speed: 389.46 Mbps
+===
+packets_sended: 11
+Time elapsed: 0.00 s
+Communication speed: 201.66 Mbps
+===
+packets_sended: 11
+Time elapsed: 0.00 s
+Communication speed: 227.47 Mbps
+===
+packets_sended: 11
+Time elapsed: 0.01 s
+Communication speed: 127.96 Mbps
+===
+packets_sended: 11
+Time elapsed: 0.00 s
+Communication speed: 215.74 Mbps
+===
+packets_sended: 11
+Time elapsed: 0.00 s
+Communication speed: 287.63 Mbps
+===
+packets_sended: 11
+Time elapsed: 0.00 s
+Communication speed: 265.60 Mbps
+===
+==================================================
+./TX 4700 4711 10000 100 10 "to_send_1mb.jpg"
+==================================================
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 447.86 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 439.09 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 519.44 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 386.67 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 406.04 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 528.32 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 462.51 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 371.77 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 364.97 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 398.30 Mbps
+===
+==================================================
+./TX 4700 4711 10000 100 10 "to_send_10mb.jpg"
+
+==================================================
+packets_sended: 1052
+Time elapsed: 0.16 s
+Communication speed: 525.56 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.17 s
+Communication speed: 491.09 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.17 s
+Communication speed: 487.84 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.18 s
+Communication speed: 473.77 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.16 s
+Communication speed: 536.74 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.18 s
+Communication speed: 475.48 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.16 s
+Communication speed: 518.56 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.18 s
+Communication speed: 468.53 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.15 s
+Communication speed: 560.89 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.18 s
+Communication speed: 456.30 Mbps
+===
+==================================================
+./TX 4700 4711 10000 100 50 "to_send_10mb.jpg"
+
+==================================================
+==================================================
+packets_sended: 1052
+Time elapsed: 0.14 s
+Communication speed: 586.23 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.16 s
+Communication speed: 510.07 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.19 s
+Communication speed: 436.95 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.16 s
+Communication speed: 529.38 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.18 s
+Communication speed: 471.59 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.22 s
+Communication speed: 378.34 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.17 s
+Communication speed: 491.38 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.15 s
+Communication speed: 555.21 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.16 s
+Communication speed: 517.29 Mbps
+===
+packets_sended: 1052
+Time elapsed: 0.17 s
+Communication speed: 505.15 Mbps
+===
+==================================================
+./TX 4700 4711 65500 100 50 "to_send_10mb.jpg"
+==================================================
+packets_sended: 161
+Time elapsed: 0.08 s
+Communication speed: 1080.56 Mbps
+===
+packets_sended: 161
+Time elapsed: 0.07 s
+Communication speed: 1129.29 Mbps
+===
+packets_sended: 161
+Time elapsed: 0.07 s
+Communication speed: 1122.48 Mbps
+===
+packets_sended: 161
+Time elapsed: 0.10 s
+Communication speed: 879.90 Mbps
+===
+packets_sended: 161
+Time elapsed: 0.08 s
+Communication speed: 1091.34 Mbps
+===
+packets_sended: 161
+Time elapsed: 0.09 s
+Communication speed: 951.29 Mbps
+===
+packets_sended: 161
+Time elapsed: 0.08 s
+Communication speed: 1060.53 Mbps
+===
+packets_sended: 161
+Time elapsed: 0.08 s
+Communication speed: 1072.41 Mbps
+===
+packets_sended: 161
+Time elapsed: 0.07 s
+Communication speed: 1135.05 Mbps
+===
+packets_sended: 161
+Time elapsed: 0.07 s
+Communication speed: 1131.47 Mbps
+===
+==================================================
+./TX 4700 4711 65000 100 50 "to_send_1mb.jpg"
+==================================================
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 1084.65 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 1111.67 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 1053.12 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 860.54 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 1070.07 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 1043.08 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 1011.63 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 945.67 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 836.39 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 1020.81 Mbps
+===
+==================================================
+./TX 4700 4711 1000 500 50 "to_send_100kb.jpg"
+
+==================================================
+packets_sended: 104
+Time elapsed: 0.00 s
+Communication speed: 166.39 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 110.99 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 104.45 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 59.72 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 84.23 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 95.51 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 130.32 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 89.63 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.02 s
+Communication speed: 41.78 Mbps
+===
+packets_sended: 104
+Time elapsed: 0.01 s
+Communication speed: 85.33 Mbps
+===
+==================================================
+./TX 4700 4711 1000 500 50 "to_send_1mb.jpg"
+
+==================================================
+packets_sended: 1099
+Time elapsed: 0.14 s
+Communication speed: 62.81 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.13 s
+Communication speed: 67.16 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.12 s
+Communication speed: 74.82 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.07 s
+Communication speed: 124.54 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.11 s
+Communication speed: 76.48 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.13 s
+Communication speed: 65.94 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.14 s
+Communication speed: 64.39 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.10 s
+Communication speed: 84.84 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.08 s
+Communication speed: 106.73 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.10 s
+Communication speed: 85.75 Mbps
+===
+==================================================
+./TX 4700 4711 1000 200 50 "to_send_1mb.jpg"
+==================================================
+packets_sended: 1099
+Time elapsed: 0.12 s
+Communication speed: 72.92 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.11 s
+Communication speed: 77.64 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.08 s
+Communication speed: 116.67 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.11 s
+Communication speed: 83.16 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.09 s
+Communication speed: 100.06 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.08 s
+Communication speed: 116.42 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.07 s
+Communication speed: 131.93 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.08 s
+Communication speed: 115.60 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.09 s
+Communication speed: 99.27 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.09 s
+Communication speed: 102.51 Mbps
+===
+==================================================
+./TX 4700 4711 1000 20 50 "to_send_1mb.jpg"
+
+==================================================
+packets_sended: 1099
+Time elapsed: 0.16 s
+Communication speed: 54.86 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.12 s
+Communication speed: 74.66 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.12 s
+Communication speed: 72.64 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.12 s
+Communication speed: 75.72 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.11 s
+Communication speed: 76.37 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.11 s
+Communication speed: 78.18 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.11 s
+Communication speed: 76.79 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.11 s
+Communication speed: 76.54 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.12 s
+Communication speed: 74.01 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.15 s
+Communication speed: 59.02 Mbps
+===
+==================================================
+./TX 4700 4711 1000 1 10 "to_send_1mb.jpg"
+==================================================
+packets_sended: 1099
+Time elapsed: 1.33 s
+Communication speed: 6.58 Mbps
+===
+packets_sended: 1099
+Time elapsed: 1.30 s
+Communication speed: 6.73 Mbps
+===
+packets_sended: 1099
+Time elapsed: 1.37 s
+Communication speed: 6.40 Mbps
+===
+packets_sended: 1099
+Time elapsed: 1.31 s
+Communication speed: 6.68 Mbps
+===
+packets_sended: 1099
+Time elapsed: 1.30 s
+Communication speed: 6.71 Mbps
+===
+packets_sended: 1099
+Time elapsed: 1.35 s
+Communication speed: 6.49 Mbps
+===
+packets_sended: 1099
+Time elapsed: 1.29 s
+Communication speed: 6.78 Mbps
+===
+packets_sended: 1099
+Time elapsed: 1.31 s
+Communication speed: 6.69 Mbps
+===
+packets_sended: 1099
+Time elapsed: 1.36 s
+Communication speed: 6.46 Mbps
+===
+packets_sended: 1099
+Time elapsed: 1.30 s
+Communication speed: 6.73 Mbps
+===
+==================================================
+./TX 4700 4711 1000 50 50 "to_send_1mb.jpg"
+==================================================
+packets_sended: 1099
+Time elapsed: 0.10 s
+Communication speed: 85.56 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.08 s
+Communication speed: 108.55 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.08 s
+Communication speed: 107.73 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.08 s
+Communication speed: 104.41 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.10 s
+Communication speed: 88.63 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.11 s
+Communication speed: 78.70 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.16 s
+Communication speed: 56.15 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.24 s
+Communication speed: 37.09 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.14 s
+Communication speed: 61.04 Mbps
+===
+packets_sended: 1099
+Time elapsed: 0.13 s
+Communication speed: 65.52 Mbps
+===
+==================================================
+./TX 4700 4711 10000 50 50 "to_send_1mb.jpg"
+==================================================
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 407.71 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 400.70 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 464.18 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 474.60 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 447.52 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 377.00 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 523.76 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 461.43 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 518.22 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 411.29 Mbps
+===
+==================================================
+./TX 4700 4711 10000 500 50 "to_send_1mb.jpg"
+==================================================
+packets_sended: 110
+Time elapsed: 0.03 s
+Communication speed: 280.38 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.03 s
+Communication speed: 309.34 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 510.29 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 520.57 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 538.68 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 519.68 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 493.39 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 483.38 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.02 s
+Communication speed: 502.51 Mbps
+===
+packets_sended: 110
+Time elapsed: 0.03 s
+Communication speed: 294.15 Mbps
+===
+==================================================
+./TX 4700 4711 1000 50 50 "to_send_10mb.jpg"
+
+==================================================
+packets_sended: 10549
+Time elapsed: 2.58 s
+Communication speed: 32.54 Mbps
+===
+packets_sended: 10549
+Time elapsed: 2.58 s
+Communication speed: 32.62 Mbps
+===
+packets_sended: 10549
+Time elapsed: 4.07 s
+Communication speed: 20.64 Mbps
+===
+packets_sended: 10549
+Time elapsed: 2.73 s
+Communication speed: 30.83 Mbps
+===
+packets_sended: 10549
+Time elapsed: 2.70 s
+Communication speed: 31.12 Mbps
+===
+packets_sended: 10549
+Time elapsed: 2.72 s
+Communication speed: 30.87 Mbps
+===
+packets_sended: 10549
+Time elapsed: 2.58 s
+Communication speed: 32.60 Mbps
+===
+packets_sended: 10549
+Time elapsed: 2.48 s
+Communication speed: 33.84 Mbps
+===
+packets_sended: 10549
+Time elapsed: 2.52 s
+Communication speed: 33.30 Mbps
+===
+packets_sended: 10549
+Time elapsed: 2.71 s
+Communication speed: 31.04 Mbps
+===
+==================================================
+/TX 4700 4711 1000 500 50 "to_send_10mb.jpg"
+==================================================
+packets_sended: 10549
+Time elapsed: 1.58 s
+Communication speed: 53.36 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.23 s
+Communication speed: 68.17 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.24 s
+Communication speed: 68.02 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.22 s
+Communication speed: 68.70 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.25 s
+Communication speed: 67.15 Mbps
+===
+Attempt: 100
+Time elapsed: 2.40 s
+Communication speed: 35.09 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.24 s
+Communication speed: 67.86 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.25 s
+Communication speed: 67.45 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.18 s
+Communication speed: 71.48 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.21 s
+Communication speed: 69.73 Mbps
+===
+==================================================
+./TX 4700 4711 1000 2000 50 "to_send_10mb.jpg"
+
+==================================================
+packets_sended: 10549
+Time elapsed: 1.19 s
+Communication speed: 70.81 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.15 s
+Communication speed: 72.90 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.14 s
+Communication speed: 74.03 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.38 s
+Communication speed: 60.69 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.16 s
+Communication speed: 72.65 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.15 s
+Communication speed: 73.16 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.10 s
+Communication speed: 76.12 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.15 s
+Communication speed: 72.99 Mbps
+===
+packets_sended: 10549
+Time elapsed: 1.20 s
+Communication speed: 69.82 Mbps
+===
+Attempt: 100
+Time elapsed: 2.45 s
+Communication speed: 34.29 Mbps
+===
+==================================================
+./TX 4700 4711 65000 200 50 "to_send_10mb.jpg"
+
+==================================================
+packets_sended: 162
+Time elapsed: 0.09 s
+Communication speed: 983.84 Mbps
+===
+packets_sended: 162
+Time elapsed: 0.09 s
+Communication speed: 965.68 Mbps
+===
+packets_sended: 162
+Time elapsed: 0.07 s
+Communication speed: 1140.33 Mbps
+===
+packets_sended: 162
+Time elapsed: 0.07 s
+Communication speed: 1143.18 Mbps
+===
+packets_sended: 162
+Time elapsed: 0.08 s
+Communication speed: 1110.13 Mbps
+===
+packets_sended: 162
+Time elapsed: 0.07 s
+Communication speed: 1149.08 Mbps
+===
+packets_sended: 162
+Time elapsed: 0.07 s
+Communication speed: 1127.05 Mbps
+===
+packets_sended: 162
+Time elapsed: 0.07 s
+Communication speed: 1139.48 Mbps
+===
+packets_sended: 162
+Time elapsed: 0.08 s
+Communication speed: 1111.56 Mbps
+===
+packets_sended: 162
+Time elapsed: 0.07 s
+Communication speed: 1134.81 Mbps
+===
+==================================================
+./TX 4700 4711 65000 100 50 "to_send_1mb.jpg" 
+==================================================
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 668.47 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 843.59 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 731.96 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 976.34 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 738.18 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 994.42 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 1040.31 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.03 s
+Communication speed: 265.02 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 838.77 Mbps
+===
+packets_sended: 17
+Time elapsed: 0.01 s
+Communication speed: 860.48 Mbps
+===
+==================================================
+./TX 4700 4711 65000 100 50 "to_send_100kb.jpg"
+==================================================
+packets_sended: 2
+Time elapsed: 0.00 s
+Communication speed: 826.24 Mbps
+===
+packets_sended: 2
+Time elapsed: 0.00 s
+Communication speed: 437.44 Mbps
+===
+packets_sended: 2
+Time elapsed: 0.00 s
+Communication speed: 214.03 Mbps
+===
+packets_sended: 2
+Time elapsed: 0.00 s
+Communication speed: 814.81 Mbps
+===
+packets_sended: 2
+Time elapsed: 0.00 s
+Communication speed: 239.28 Mbps
+===
+packets_sended: 2
+Time elapsed: 0.00 s
+Communication speed: 956.66 Mbps
+===
+packets_sended: 2
+Time elapsed: 0.00 s
+Communication speed: 276.78 Mbps
+===
+packets_sended: 2
+Time elapsed: 0.00 s
+Communication speed: 411.56 Mbps
+===
+packets_sended: 2
+Time elapsed: 0.00 s
+Communication speed: 834.29 Mbps
+===
+packets_sended: 2
+Time elapsed: 0.01 s
+Communication speed: 106.08 Mbps
+===
+==================================================

@@ -37,8 +37,21 @@
 # wait
 # ./test.sh jj 4000 10000 1024 0 
 # wait
-for ((number=0;number < 10;number++))
-{
-	java TX 4000 10000 2000
-	sleep 1
+# for ((number=0;number < 10;number++))
+# {
+# 	java TX 4000 10000 2000
+# 	sleep 1
+# }
+
+# TEST TX.c -> RX.c
+echo "==================================================" >> presentation/c_to_c.txt
+for ((number=0;number < 10;number++)){
+	cd c/
+	./RX 4700 4711 > outRX.txt &
+	./TX 4700 4711 65000 100 50 "to_send_100kb.jpg" | tail -n 3 >> ../presentation/c_to_c.txt
+	cd ../
+	echo "===" >> presentation/c_to_c.txt
+	echo $number
+	sleep 2
 }
+echo "==================================================" >> presentation/c_to_c.txt

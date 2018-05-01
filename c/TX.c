@@ -274,7 +274,7 @@ int main(int argc, char *argv[])
 {
     switch(argc) {
         case 7:
-            file_name = argv[5];
+            file_name = argv[6];
         case 6:
             portTX = strtol(argv[1], NULL, 10);
             portRX = strtol(argv[2], NULL, 10);
