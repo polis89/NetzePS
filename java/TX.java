@@ -68,7 +68,7 @@ class TX
     }
 
     if (args.length > 5){
-      fileName = args[2];
+      fileName = args[5];
     }
 
     packets = new ArrayList<DatagramPacket>();

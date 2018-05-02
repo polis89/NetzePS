@@ -1,0 +1,599 @@
+TX 4700 4711 1000 100 200 to_send_1mb.jpg
+==================================================
+File size: 1093957 Bytes
+Time elapsed: 0.90 s
+Communication speed: 9.69 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.85 s
+Communication speed: 10.32 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.77 s
+Communication speed: 11.35 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.90 s
+Communication speed: 9.76 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.93 s
+Communication speed: 9.46 Mbps
+===
+==================================================
+TX 4700 4711 1000 100 1000 to_send_100kb.jpg
+==================================================
+File size: 102796 Bytes
+Time elapsed: 0.17 s
+Communication speed: 4.97 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.18 s
+Communication speed: 4.55 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.15 s
+Communication speed: 5.61 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.19 s
+Communication speed: 4.23 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.15 s
+Communication speed: 5.63 Mbps
+===
+==================================================
+TX 4700 4711 1000 100 2000 to_send_100kb.jpg
+==================================================
+File size: 102796 Bytes
+Time elapsed: 0.22 s
+Communication speed: 3.78 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.15 s
+Communication speed: 5.48 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.40 s
+Communication speed: 2.07 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.17 s
+Communication speed: 4.81 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.15 s
+Communication speed: 5.43 Mbps
+===
+==================================================
+TX 4700 4711 1000 100 1000 to_send_1mb.jpg
+==================================================
+File size: 1093957 Bytes
+Time elapsed: 1.37 s
+Communication speed: 6.39 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.83 s
+Communication speed: 10.48 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 1.01 s
+Communication speed: 8.63 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.94 s
+Communication speed: 9.35 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.96 s
+Communication speed: 9.10 Mbps
+===
+==================================================
+TX 4700 4711 1000 100 2000 to_send_1mb.jpg
+==================================================
+File size: 1093957 Bytes
+Time elapsed: 0.92 s
+Communication speed: 9.54 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.97 s
+Communication speed: 9.02 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.87 s
+Communication speed: 10.05 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.85 s
+Communication speed: 10.27 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.89 s
+Communication speed: 9.79 Mbps
+===
+==================================================
+TX 4700 4711 1000 100 1000 to_send_10mb.jpg
+==================================================
+File size: 10506316 Bytes
+Time elapsed: 4.27 s
+Communication speed: 19.68 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 3.84 s
+Communication speed: 21.90 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 4.17 s
+Communication speed: 20.18 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 4.05 s
+Communication speed: 20.75 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 4.38 s
+Communication speed: 19.20 Mbps
+===
+==================================================
+TX 4700 4711 1000 100 2000 to_send_10mb.jpg
+==================================================
+File size: 10506316 Bytes
+Time elapsed: 4.44 s
+Communication speed: 18.93 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 4.36 s
+Communication speed: 19.28 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 4.29 s
+Communication speed: 19.61 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 3.89 s
+Communication speed: 21.63 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 3.86 s
+Communication speed: 21.78 Mbps
+===
+==================================================
+TX 4700 4711 10000 100 1000 to_send_100kb.jpg
+==================================================
+File size: 102796 Bytes
+Time elapsed: 0.09 s
+Communication speed: 9.31 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.09 s
+Communication speed: 8.90 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.09 s
+Communication speed: 8.80 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.09 s
+Communication speed: 9.60 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.10 s
+Communication speed: 8.27 Mbps
+===
+==================================================
+TX 4700 4711 10000 100 1000 to_send_1mb.jpg
+==================================================
+File size: 1093957 Bytes
+Time elapsed: 0.58 s
+Communication speed: 15.17 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 1.10 s
+Communication speed: 7.96 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.55 s
+Communication speed: 15.94 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.75 s
+Communication speed: 11.71 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.57 s
+Communication speed: 15.24 Mbps
+===
+==================================================
+TX 4700 4711 65000 100 1000 to_send_1mb.jpg
+==================================================
+File size: 1093957 Bytes
+Time elapsed: 0.35 s
+Communication speed: 25.21 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.36 s
+Communication speed: 24.28 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.33 s
+Communication speed: 26.13 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.34 s
+Communication speed: 25.67 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.51 s
+Communication speed: 17.21 Mbps
+===
+==================================================
+TX 4700 4711 10000 100 1000 to_send_10mb.jpg
+==================================================
+File size: 10506316 Bytes
+Time elapsed: 4.35 s
+Communication speed: 19.31 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 2.38 s
+Communication speed: 35.37 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 2.35 s
+Communication speed: 35.73 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 2.61 s
+Communication speed: 32.19 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 2.25 s
+Communication speed: 37.36 Mbps
+===
+==================================================
+TX 4700 4711 65000 100 1000 to_send_10mb.jpg
+==================================================
+File size: 10506316 Bytes
+Time elapsed: 4.20 s
+Communication speed: 20.01 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 0.56 s
+Communication speed: 148.93 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 3.63 s
+Communication speed: 23.18 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 0.50 s
+Communication speed: 168.91 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 3.16 s
+Communication speed: 26.61 Mbps
+===
+==================================================
+TX 4700 4711 1000 500 1000 to_send_100kb.jpg
+==================================================
+File size: 102796 Bytes
+Time elapsed: 0.19 s
+Communication speed: 4.27 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.17 s
+Communication speed: 4.88 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.18 s
+Communication speed: 4.61 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.16 s
+Communication speed: 5.13 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.15 s
+Communication speed: 5.62 Mbps
+===
+==================================================
+TX 4700 4711 1000 50 1000 to_send_1mb.jpg
+==================================================
+File size: 1093957 Bytes
+Time elapsed: 0.93 s
+Communication speed: 9.44 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 1.22 s
+Communication speed: 7.20 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 1.06 s
+Communication speed: 8.23 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.89 s
+Communication speed: 9.83 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.95 s
+Communication speed: 9.20 Mbps
+===
+==================================================
+TX 4700 4711 1000 500 1000 to_send_1mb.jpg
+==================================================
+File size: 1093957 Bytes
+Time elapsed: 1.19 s
+Communication speed: 7.36 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.93 s
+Communication speed: 9.36 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 1.27 s
+Communication speed: 6.88 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 1.11 s
+Communication speed: 7.90 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 1.44 s
+Communication speed: 6.09 Mbps
+===
+==================================================
+TX 4700 4711 1000 50 1000 to_send_10mb.jpg
+==================================================
+File size: 10506316 Bytes
+Time elapsed: 4.13 s
+Communication speed: 20.36 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 3.77 s
+Communication speed: 22.32 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 3.86 s
+Communication speed: 21.80 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 3.82 s
+Communication speed: 22.03 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 3.77 s
+Communication speed: 22.32 Mbps
+===
+==================================================
+TX 4700 4711 1000 500 1000 to_send_10mb.jpg
+==================================================
+File size: 10506316 Bytes
+Time elapsed: 10.01 s
+Communication speed: 8.40 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 5.22 s
+Communication speed: 16.11 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 5.28 s
+Communication speed: 15.93 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 5.79 s
+Communication speed: 14.52 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 5.64 s
+Communication speed: 14.90 Mbps
+===
+==================================================
+TX 4700 4711 1000 200 1000 to_send_10mb.jpg
+==================================================
+File size: 10506316 Bytes
+Time elapsed: 4.85 s
+Communication speed: 17.33 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 4.72 s
+Communication speed: 17.79 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 5.19 s
+Communication speed: 16.20 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 8.30 s
+Communication speed: 10.12 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 5.69 s
+Communication speed: 14.78 Mbps
+===
+==================================================
+TX 4700 4711 65000 100 2000 to_send_100kb.jpg
+==================================================
+File size: 102796 Bytes
+Time elapsed: 0.24 s
+Communication speed: 3.40 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.18 s
+Communication speed: 4.68 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.16 s
+Communication speed: 5.07 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.17 s
+Communication speed: 4.81 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.15 s
+Communication speed: 5.67 Mbps
+===
+==================================================
+TX 4700 4711 65000 100 1000 to_send_100kb.jpg
+==================================================
+File size: 102796 Bytes
+Time elapsed: 0.14 s
+Communication speed: 5.71 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.15 s
+Communication speed: 5.65 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.16 s
+Communication speed: 5.29 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.15 s
+Communication speed: 5.67 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.14 s
+Communication speed: 5.70 Mbps
+===
+==================================================
+TX 4700 4711 65000 100 5000 to_send_100kb.jpg
+==================================================
+File size: 102796 Bytes
+Time elapsed: 0.18 s
+Communication speed: 4.68 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.16 s
+Communication speed: 5.11 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.16 s
+Communication speed: 5.11 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.20 s
+Communication speed: 4.02 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.15 s
+Communication speed: 5.47 Mbps
+===
+==================================================
+TX 4700 4711 65000 100 1000 to_send_1mb.jpg
+==================================================
+File size: 1093957 Bytes
+Time elapsed: 0.44 s
+Communication speed: 20.00 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.38 s
+Communication speed: 23.14 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.41 s
+Communication speed: 21.25 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.39 s
+Communication speed: 22.43 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.37 s
+Communication speed: 23.83 Mbps
+===
+==================================================
+TX 4700 4711 65000 100 1000 to_send_1mb.jpg
+==================================================
+File size: 1093957 Bytes
+Time elapsed: 0.35 s
+Communication speed: 24.72 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.34 s
+Communication speed: 25.37 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.59 s
+Communication speed: 14.96 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.38 s
+Communication speed: 22.95 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.37 s
+Communication speed: 23.93 Mbps
+===
+==================================================
+TX 4700 4711 65000 100 5000 to_send_1mb.jpg
+==================================================
+File size: 1093957 Bytes
+Time elapsed: 0.34 s
+Communication speed: 25.46 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.36 s
+Communication speed: 24.35 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.33 s
+Communication speed: 26.59 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.33 s
+Communication speed: 26.55 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.36 s
+Communication speed: 24.45 Mbps
+===
+==================================================
+TX 4700 4711 65000 100 2000 to_send_10mb.jpg
+==================================================
+File size: 10506316 Bytes
+Time elapsed: 2.05 s
+Communication speed: 40.94 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 3.06 s
+Communication speed: 27.43 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 0.63 s
+Communication speed: 133.79 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 2.24 s
+Communication speed: 37.50 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 0.49 s
+Communication speed: 169.82 Mbps
+===
+==================================================
+TX 4700 4711 65000 100 5000 to_send_10mb.jpg
+==================================================
+File size: 10506316 Bytes
+Time elapsed: 3.16 s
+Communication speed: 26.62 Mbps
+===
+TX 4700 4711 65000 100 2000 to_send_10mb.jpg
+==================================================
+File size: 10506316 Bytes
+Time elapsed: 3.62 s
+Communication speed: 23.23 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 0.59 s
+Communication speed: 141.79 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 3.17 s
+Communication speed: 26.50 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 0.58 s
+Communication speed: 146.10 Mbps
+===

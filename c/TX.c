@@ -132,7 +132,7 @@ void sendFile(){
     int attempt = 0;
 
     //Sending Loop
-    while(packets_sended < packets_amount && attempt < 100){
+    while(packets_sended < packets_amount && attempt < 10000){
         //Send block of packets loop
         int count = 0; 
         while(count < packet_block_size){

@@ -1,3 +1,7 @@
 \beamer@endinputifotherversion {3.36pt}
 \beamer@sectionintoc {1}{Description}{2}{0}{1}
 \beamer@sectionintoc {2}{Tests}{8}{0}{2}
+\beamer@sectionintoc {3}{Tests: C to C}{10}{0}{3}
+\beamer@sectionintoc {4}{Tests: C to Java}{15}{0}{4}
+\beamer@sectionintoc {5}{Tests: Java to C}{20}{0}{5}
+\beamer@sectionintoc {6}{Tests: Java to Java}{25}{0}{6}

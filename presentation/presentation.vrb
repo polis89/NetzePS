@@ -1,5 +1,5 @@
-\frametitle{TX.c to RX.c}
-\begin{block}{TX.c to RX.c: Best results}
+\frametitle{TX.java to RX.java}
+\begin{block}{TX.java to RX.java: Best results}
 	\begin{table}[]
 	\scriptsize
 	\centering
@@ -10,11 +10,11 @@
 				\toprule
 				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Block size \\ (packets)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\
 				\midrule
-				100Kb & 65000 & 100 & 50 & 0,001 & 511,7 \\
+				100Kb & 10000 & 100 & 1000 & 0,092 & 8,9 \\
 				\midrule
-				1Mb & 65000 & 100 & 50 & 0,010 & 1003,7 \\
+				1Mb & 65000 & 100 & 5000 & 0,346 & 25,4 \\
 				\midrule
-				10Mb & 65000 & 200 & 50 & 0,069 & 1100,5 \\
+				10Mb & 65000 & 100 & 1000 & 1,91 & 77,5 \\
 				\bottomrule
 			\end{tabular}
 		\end{table}
