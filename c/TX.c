@@ -26,15 +26,15 @@ typedef struct{
 } Packet;
  
 //Default params
-unsigned short portTX = 4700; //Default port
-unsigned short portRX = 4711; //Default port
+char* ipAddr = "127.0.0.1";
+unsigned short portTX = 4700; //Fixed
+unsigned short portRX = 4711; //Default port to send data
 int packet_size = 1000; 
-int packet_block_size = 100; //Amount of packets between delay 
 int delay = 200; //Delay between blocks of packet
 unsigned char *file_name = "to_send3.jpg";
 
 int packet_payload, packets_amount; 
-int sock, sock_for_acks; //Socket descriptors
+int sock; //Socket descriptors
 long filelen;
 Packet **packets_to_send;
 uint32_t crc_32_val; //CRC32
@@ -107,14 +107,6 @@ void sendPacket(int index){
     data[2] = seq_num_2;
     data[3] = seq_num_3;
 
-    // int i;
-    // for (i = 0; i < 10; i++)
-    // {
-    //     if (i > 0) printf(":");
-    //     printf("%02d", data[i]);
-    // }
-    // printf("\n");
-
     int sent_bytes = sendto(sock, data, packet_size-1, 0, (const struct sockaddr*) &addr_to_send, slen);
 
     printf("Packet gesendet. Bytes: %d\n", sent_bytes);
@@ -122,68 +114,35 @@ void sendPacket(int index){
 
 void sendFile(){
     //Acknowlegments array
-    int packets_sended = 0;
-    bool ack[packets_amount]; 
-    for(int i = 0; i < packets_amount; i++){
-        ack[i] = false;
-    }
+    int last_packet = 0; //Last sendet seq_num
 
-    int index_iterator = 0; //Index of next packet to send
+    // int index_iterator = 0; //Index of next packet to send
     int attempt = 0;
 
     //Sending Loop
-    while(packets_sended < packets_amount && attempt < 10000){
+    while(last_packet < packets_amount && attempt < 10000){
         //Send block of packets loop
         int count = 0; 
-        while(count < packet_block_size){
-            //Find next non-sended packet
-            bool loopEnd = false;
-            while(ack[index_iterator]){
-                index_iterator++;
-                if(index_iterator == packets_amount){
-                    index_iterator = 0;
-                    loopEnd = true;
-                    attempt++;
-                    printf("Attempt: %d\n", attempt);
-                    break;
-                }
-            }
-            if(loopEnd)
-                break;
-            sendPacket(index_iterator);
-            if(index_iterator == packets_amount - 1)
-                break;
-            index_iterator++;
-            count++;
-        }
+        sendPacket(last_packet);
         //Waiting for acks
         fd_set set;
         struct timeval tv;
-        int delay_pro_packet = delay/packets_amount;
-        int sec =  delay_pro_packet/1000000;
+        int sec =  delay/1000000;
         tv.tv_sec = sec;
         tv.tv_usec = delay - sec*1000000;
-        for(int i = 0; i < packets_amount; i++){
-            if(packets_amount == packets_sended)
-                break;
-            FD_ZERO(&set); 
-            FD_SET(sock_for_acks, &set); 
-            int rv = select(sock_for_acks + 1, &set, NULL, NULL, &tv);
-            if (rv != 0) {
-                int nBytes = recvfrom(sock_for_acks, &buf, 1024, 0, (struct sockaddr *) &addr_me, &slenme);
-                if(buf[0] == 0b11111111){
-                    printf("Receive all\n");
-                    break;
-                }
-                int received_seq_num = buf[3] + buf[2] * 256 + buf[1] * pow(256.0, 2) + buf[0] * pow(256.0, 3);
-                printf("=== Ack: %d ===\n", received_seq_num);
-                if(!ack[received_seq_num]){
-                    ack[received_seq_num] = true;
-                    packets_sended++;
-                }
-                printf("packets_sended: %d\n", packets_sended);
+        FD_ZERO(&set); 
+        FD_SET(sock, &set); 
+        int rv = select(sock + 1, &set, NULL, NULL, &tv);
+        if (rv != 0) {
+            int nBytes = recvfrom(sock, &buf, 1024, 0, (struct sockaddr *) &addr_me, &slenme);
+            int received_seq_num = buf[3] + buf[2] * 256 + buf[1] * pow(256.0, 2) + buf[0] * pow(256.0, 3);
+            printf("=== Ack recieved: %d ===\n", received_seq_num);
+            if(received_seq_num == last_packet){
+                last_packet++;
             }
         }
+        if(packets_amount == last_packet)
+            break;
     }
 }
 
@@ -235,7 +194,7 @@ void initUPDSocket(){
 
     addr_to_send.sin_family = AF_INET;
     addr_to_send.sin_port = htons(portRX);
-    addr_to_send.sin_addr.s_addr = inet_addr("127.0.0.1");
+    addr_to_send.sin_addr.s_addr = inet_addr(ipAddr);
 
     //Get new socket
     // AF_INET -> IPv4
@@ -244,14 +203,9 @@ void initUPDSocket(){
     if ((sock=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
     {
         die("on open error");
-    }
-    if ((sock_for_acks=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
-    {
-        die("on open error");
-    }
-     
+    }     
     //bind socket to port
-    if( bind(sock_for_acks , (struct sockaddr*)&addr_me, sizeof(addr_me) ) == -1)
+    if( bind(sock , (struct sockaddr*)&addr_me, sizeof(addr_me) ) == -1)
     {
         die("bind");
     }
@@ -273,18 +227,19 @@ double calculateSpeed() {
 int main(int argc, char *argv[])
 {
     switch(argc) {
-        case 7:
-            file_name = argv[6];
         case 6:
-            portTX = strtol(argv[1], NULL, 10);
+            file_name = argv[5];
+        case 5:
+            // portTX = strtol(argv[1], NULL, 10);
+            ipAddr = argv[1];
             portRX = strtol(argv[2], NULL, 10);
             packet_size = strtol(argv[3], NULL, 10);
-            packet_block_size = strtol(argv[4], NULL, 10);
+            // packet_block_size = strtol(argv[4], NULL, 10);
             // packetsAmount = strtol(argv[2], NULL, 10);
-            delay = strtol(argv[5], NULL, 10);
+            delay = strtol(argv[4], NULL, 10);
             break;
         default : 
-            fputs ("usage: TX <portTX> <portRX> <packet_size> <packet_block_size> <send_delay> <file_name>\n", stderr);
+            fputs ("usage: TX <ipAddr> <portRX> <packet_size> <send_delay> <file_name>\n", stderr);
     }
     packet_payload = packet_size - 4; 
 

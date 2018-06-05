@@ -30,7 +30,6 @@ typedef struct{
 } DataRecieved;
 
  
-unsigned short portTX = 4700; //Default port
 unsigned short portRX = 4711; //Default port
 int bufferSize = 2048; //Length of buffer
 int sock; //Socket descriptor
@@ -115,13 +114,13 @@ void assembleFile(){
  
 int main(int argc, char *argv[])
 {
-    if (argc < 3)
-        fputs ("usage: RX <portTX> <portRX>\n", stderr);
+    if (argc < 2)
+        fputs ("usage: RX <portRX>\n", stderr);
     else {
-        portTX = strtol(argv[1], NULL, 10);
-        portRX = strtol(argv[2], NULL, 10);
+        portRX = strtol(argv[1], NULL, 10);
     }
     struct sockaddr_in addr_me, addr_to_send; //Socket Address for Internet
+    socklen_t addrlen = sizeof(addr_to_send); 
     int slen = sizeof(addr_me); 
     int recv_len;
     int seq_num;
@@ -131,10 +130,9 @@ int main(int argc, char *argv[])
   	addr_me.sin_family = AF_INET;
 	addr_me.sin_port = htons(portRX);
 	addr_me.sin_addr.s_addr = htonl(INADDR_ANY);
-
-    addr_to_send.sin_family = AF_INET;
-    addr_to_send.sin_port = htons(portTX);
-    addr_to_send.sin_addr.s_addr = inet_addr("127.0.0.1");
+    // addr_to_send.sin_family = AF_INET;
+    // addr_to_send.sin_port = htons(portTX);
+    // addr_to_send.sin_addr.s_addr = inet_addr("127.0.0.1");
 
     //Get new socket
     if ((sock=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1){
@@ -164,13 +162,14 @@ int main(int argc, char *argv[])
         fflush(stdout);
          
         //receive data
-        if ((recv_len = recvfrom(sock, buf, bufferSize, 0, (struct sockaddr *) &addr_me, &slen)) == -1)
+        if ((recv_len = recvfrom(sock, buf, bufferSize, 0, (struct sockaddr *) &addr_to_send, &addrlen)) == -1)
         {
             die("recvfrom()");
         }
          
         printf("=== RECIEVED ===\n");
-
+        printf("got something %s\n",inet_ntoa(addr_to_send.sin_addr));
+        printf("got something %d\n",addr_to_send.sin_port);
         if(packet_payload == -1)
             packet_payload = recv_len - 4;
 
@@ -202,7 +201,9 @@ int main(int argc, char *argv[])
             dataRecieved->packets = (Packet **) realloc(dataRecieved->packets, dataRecieved->allocated * sizeof(Packet *));
         }
 
-        int sent_bytes = sendto(sock, ack_data, 4, 0, (const struct sockaddr*) &addr_to_send, slen);
+        int sent_bytes = sendto(sock, ack_data, 4, 0, (struct sockaddr*) &addr_to_send, addrlen);
+        printf("Sendet bytes: %d\n", sent_bytes);
+
 
         if((buf[0] & 0b10000000) == 0b10000000){
             //Last Fragment
