@@ -14,21 +14,6 @@
  */
 
 
-/**
-
- *
-
- * Usage: java TX <portTX> <portRX> <packet_size> <packet_block_size> <send_delay> <file_name>
-
- * Default: TX 4700 4711 1000 100 0 to_send.jpg
-
- *
-
- * @author Dmitrii Polianskii, Lukas Lamminger
-
- */
-
-
 
 
 

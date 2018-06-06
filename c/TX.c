@@ -1,7 +1,7 @@
 /**
  * TX
- * Usage: TX <portTX> <portRX> <packet_size> <packet_block_size> <send_delay> <file_name>
- * Default: TX 4700 4711 1000 100 0 to_send.jpg
+ * Usage: TX <ipAddr> <portRX> <packet_size> <send_delay> <file_name>
+ * Default: TX 4711 1000 200 to_send3.jpg
  *
  * @author Dmitrii Polianskii, Lukas Lamminger
  *

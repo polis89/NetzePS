@@ -1,6 +1,6 @@
 /**
  * RX
- * Usage: RX <portTX> <portRX>
+ * Usage: RX <portRX>
  *
  * @author Dmitrii Polianskii, Lukas Lamminger
  *
