@@ -5,4 +5,3 @@
 \beamer@sectionintoc {5}{Tests: Java to C}{18}{0}{5}
 \beamer@sectionintoc {6}{Tests: Java to Java}{22}{0}{6}
 \beamer@sectionintoc {7}{Compare the best of results}{26}{0}{7}
-\beamer@sectionintoc {8}{WLAN results}{28}{0}{8}
