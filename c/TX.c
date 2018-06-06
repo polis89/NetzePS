@@ -132,13 +132,18 @@ void sendFile(){
         tv.tv_usec = delay - sec*1000000;
         FD_ZERO(&set); 
         FD_SET(sock, &set); 
-        int rv = select(sock + 1, &set, NULL, NULL, &tv);
-        if (rv != 0) {
-            int nBytes = recvfrom(sock, &buf, 1024, 0, (struct sockaddr *) &addr_me, &slenme);
-            int received_seq_num = buf[3] + buf[2] * 256 + buf[1] * pow(256.0, 2) + buf[0] * pow(256.0, 3);
-            printf("=== Ack recieved: %d ===\n", received_seq_num);
-            if(received_seq_num == last_packet){
-                last_packet++;
+        while(true){
+            int rv = select(sock + 1, &set, NULL, NULL, &tv);
+            if (rv != 0) {
+                int nBytes = recvfrom(sock, &buf, 1024, 0, (struct sockaddr *) &addr_me, &slenme);
+                int received_seq_num = buf[3] + buf[2] * 256 + buf[1] * pow(256.0, 2) + buf[0] * pow(256.0, 3);
+                printf("=== Ack recieved: %d ===\n", received_seq_num);
+                if(received_seq_num == last_packet){
+                    last_packet++;
+                    break;
+                }
+            }else{
+                break;
             }
         }
         if(packets_amount == last_packet)

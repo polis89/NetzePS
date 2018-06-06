@@ -1405,3 +1405,603 @@ Communication speed: 106.08 Mbps
 ==================================================
 ==================================================
 ==================================================
+==================================================
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 238.02 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 288.86 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 224.59 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 266.78 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 266.74 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 251.08 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 264.91 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 243.96 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 266.37 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 278.49 Mbps
+===
+==================================================
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 224.87 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 258.47 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 254.48 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 259.90 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 276.88 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 260.47 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 285.45 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 238.02 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 239.94 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 291.09 Mbps
+===
+==================================================
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 230.06 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 198.91 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 191.78 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 225.57 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 270.42 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 288.64 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 238.51 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 235.54 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 275.89 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.00 s
+Communication speed: 231.97 Mbps
+===
+==================================================
+==================================================
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 322.60 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 331.66 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 342.74 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 342.58 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 260.60 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 315.30 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.02 s
+Communication speed: 351.41 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.04 s
+Communication speed: 206.16 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 328.93 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 345.99 Mbps
+===
+==================================================
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 334.32 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.02 s
+Communication speed: 376.74 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.02 s
+Communication speed: 351.14 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.04 s
+Communication speed: 238.23 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.02 s
+Communication speed: 359.88 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 347.18 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.02 s
+Communication speed: 378.83 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 318.93 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 336.28 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 345.20 Mbps
+===
+==================================================
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 327.96 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.02 s
+Communication speed: 418.07 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 342.97 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 323.28 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 326.55 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 309.57 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 316.86 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 319.61 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.03 s
+Communication speed: 310.69 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.02 s
+Communication speed: 360.13 Mbps
+===
+==================================================
+==================================================
+=== Ack recieved: 10548 ===
+Time elapsed: 0.23 s
+Communication speed: 372.84 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.21 s
+Communication speed: 406.99 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.22 s
+Communication speed: 383.02 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.21 s
+Communication speed: 397.80 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.23 s
+Communication speed: 371.30 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.34 s
+Communication speed: 244.05 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.21 s
+Communication speed: 400.12 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.22 s
+Communication speed: 378.09 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.21 s
+Communication speed: 397.10 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.22 s
+Communication speed: 378.76 Mbps
+===
+==================================================
+=== Ack recieved: 10548 ===
+Time elapsed: 0.24 s
+Communication speed: 356.24 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.23 s
+Communication speed: 360.44 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.22 s
+Communication speed: 378.32 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.21 s
+Communication speed: 394.56 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.31 s
+Communication speed: 274.77 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.23 s
+Communication speed: 369.18 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.21 s
+Communication speed: 394.37 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.29 s
+Communication speed: 292.55 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.23 s
+Communication speed: 366.11 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.31 s
+Communication speed: 268.96 Mbps
+===
+==================================================
+=== Ack recieved: 10548 ===
+Time elapsed: 0.39 s
+Communication speed: 214.91 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.22 s
+Communication speed: 379.33 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 4.31 s
+Communication speed: 19.49 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.31 s
+Communication speed: 273.43 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.45 s
+Communication speed: 185.19 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.38 s
+Communication speed: 218.77 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.95 s
+Communication speed: 88.49 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.31 s
+Communication speed: 275.19 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.24 s
+Communication speed: 348.40 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.21 s
+Communication speed: 407.64 Mbps
+===
+==================================================
+==================================================
+=== Ack recieved: 10 ===
+Time elapsed: 0.00 s
+Communication speed: 976.34 Mbps
+===
+=== Ack recieved: 10 ===
+Time elapsed: 0.00 s
+Communication speed: 735.90 Mbps
+===
+=== Ack recieved: 10 ===
+Time elapsed: 0.00 s
+Communication speed: 765.96 Mbps
+===
+=== Ack recieved: 10 ===
+Time elapsed: 0.00 s
+Communication speed: 716.19 Mbps
+===
+=== Ack recieved: 10 ===
+Time elapsed: 0.00 s
+Communication speed: 736.43 Mbps
+===
+==================================================
+=== Ack recieved: 109 ===
+Time elapsed: 0.01 s
+Communication speed: 1513.68 Mbps
+===
+=== Ack recieved: 109 ===
+Time elapsed: 0.01 s
+Communication speed: 887.56 Mbps
+===
+=== Ack recieved: 109 ===
+Time elapsed: 0.01 s
+Communication speed: 968.22 Mbps
+===
+=== Ack recieved: 109 ===
+Time elapsed: 0.01 s
+Communication speed: 1553.76 Mbps
+===
+=== Ack recieved: 109 ===
+Time elapsed: 0.01 s
+Communication speed: 1066.80 Mbps
+===
+==================================================
+=== Ack recieved: 16 ===
+Time elapsed: 0.00 s
+Communication speed: 2513.26 Mbps
+===
+=== Ack recieved: 16 ===
+Time elapsed: 0.00 s
+Communication speed: 2252.75 Mbps
+===
+=== Ack recieved: 16 ===
+Time elapsed: 0.00 s
+Communication speed: 2495.16 Mbps
+===
+=== Ack recieved: 16 ===
+Time elapsed: 0.00 s
+Communication speed: 2271.62 Mbps
+===
+=== Ack recieved: 16 ===
+Time elapsed: 0.00 s
+Communication speed: 2505.34 Mbps
+===
+==================================================
+==================================================
+=== Ack recieved: 1051 ===
+Time elapsed: 0.07 s
+Communication speed: 1159.80 Mbps
+===
+=== Ack recieved: 1051 ===
+Time elapsed: 0.06 s
+Communication speed: 1352.32 Mbps
+===
+=== Ack recieved: 1051 ===
+Time elapsed: 0.06 s
+Communication speed: 1339.28 Mbps
+===
+=== Ack recieved: 1051 ===
+Time elapsed: 0.06 s
+Communication speed: 1402.58 Mbps
+===
+=== Ack recieved: 1051 ===
+Time elapsed: 0.05 s
+Communication speed: 1637.62 Mbps
+===
+==================================================
+=== Ack recieved: 161 ===
+Time elapsed: 0.03 s
+Communication speed: 2603.63 Mbps
+===
+=== Ack recieved: 161 ===
+Time elapsed: 0.04 s
+Communication speed: 2277.28 Mbps
+===
+=== Ack recieved: 161 ===
+Time elapsed: 0.04 s
+Communication speed: 2262.37 Mbps
+===
+=== Ack recieved: 161 ===
+Time elapsed: 0.04 s
+Communication speed: 1994.60 Mbps
+===
+=== Ack recieved: 161 ===
+Time elapsed: 0.04 s
+Communication speed: 2355.42 Mbps
+===
+==================================================
+WLAn c to c=== Ack recieved: 103 ===
+Time elapsed: 69.85 s
+Communication speed: 0.01 Mbps
+=== Ack recieved: 103 ===
+Time elapsed: 40.34 s
+Communication speed: 0.02 Mbps
+=== Ack recieved: 103 ===
+Time elapsed: 6.55 s
+Communication speed: 0.13 Mbps
+====================================
+4711 1000 1000 100kb
+================================
+=== Ack recieved: 103 ===
+Time elapsed: 0.29 s
+Communication speed: 2.82 Mbps
+=== Ack recieved: 103 ===
+Time elapsed: 0.29 s
+Communication speed: 2.80 Mbps
+=== Ack recieved: 103 ===
+Time elapsed: 0.25 s
+Communication speed: 3.28 Mbps
+=== Ack recieved: 103 ===
+Time elapsed: 0.48 s
+Communication speed: 1.71 Mbps
+=== Ack recieved: 103 ===
+Time elapsed: 0.25 s
+Communication speed: 3.29 Mbps
+====================================
+4711 1000 2000 100kb
+================================
+=== Ack recieved: 103 ===
+Time elapsed: 0.22 s
+Communication speed: 3.81 Mbps
+=== Ack recieved: 103 ===
+Time elapsed: 0.22 s
+Communication speed: 3.79 Mbps
+=== Ack recieved: 103 ===
+Time elapsed: 0.22 s
+Communication speed: 3.70 Mbps
+=== Ack recieved: 103 ===
+Time elapsed: 0.23 s
+Communication speed: 3.58 Mbps
+=== Ack recieved: 103 ===
+Time elapsed: 0.20 s
+Communication speed: 4.10 Mbps
+====================================
+====================================
+4711 10000 5000 100kb
+================================
+=== Ack recieved: 10 ===
+Time elapsed: 0.09 s
+Communication speed: 9.52 Mbps
+=== Ack recieved: 10 ===
+Time elapsed: 0.12 s
+Communication speed: 6.65 Mbps
+=== Ack recieved: 10 ===
+Time elapsed: 0.09 s
+Communication speed: 9.40 Mbps
+=== Ack recieved: 10 ===
+Time elapsed: 0.11 s
+Communication speed: 7.83 Mbps
+=== Ack recieved: 10 ===
+Time elapsed: 0.10 s
+Communication speed: 7.84 Mbps
+=== Ack recieved: 10 ===
+Time elapsed: 0.07 s
+Communication speed: 11.24 Mbps
+=== Ack recieved: 10 ===
+Time elapsed: 0.06 s
+Communication speed: 13.87 Mbps
+=== Ack recieved: 10 ===
+Time elapsed: 0.06 s
+Communication speed: 13.21 Mbps
+====================================
+4711 1000 2000 1mb
+================================
+=== Ack recieved: 1098 ===
+Time elapsed: 2.19 s
+Communication speed: 3.99 Mbps
+=== Ack recieved: 1098 ===
+Time elapsed: 2.18 s
+Communication speed: 4.01 Mbps
+=== Ack recieved: 1098 ===
+Time elapsed: 2.50 s
+Communication speed: 3.50 Mbps
+=== Ack recieved: 109 ===
+Time elapsed: 0.65 s
+Communication speed: 13.38 Mbps
+=== Ack recieved: 109 ===
+Time elapsed: 0.68 s
+Communication speed: 12.90 Mbps
+=== Ack recieved: 22 ===
+Time elapsed: 0.57 s
+Communication speed: 15.28 Mbps
+=== Ack recieved: 22 ===
+Time elapsed: 1.31 s
+Communication speed: 6.68 Mbps
+=== Ack recieved: 22 ===
+Time elapsed: 0.77 s
+Communication speed: 11.36 Mbps
+=== Ack recieved: 10548 ===
+Time elapsed: 24.74 s
+Communication speed: 3.40 Mbps
+=== Ack recieved: 10548 ===
+Time elapsed: 24.10 s
+Communication speed: 3.49 Mbps
+=== Ack recieved: 1051 ===
+Time elapsed: 7.14 s
+Communication speed: 11.77 Mbps
+=== Ack recieved: 1051 ===
+Time elapsed: 10.40 s
+Communication speed: 8.08 Mbps
+=== Ack recieved: 1051 ===
+Time elapsed: 6.61 s
+Communication speed: 12.71 Mbps
+=== Ack recieved: 218 ===
+Time elapsed: 4.97 s
+Communication speed: 16.92 Mbps
+=== Ack recieved: 218 ===
+Time elapsed: 5.49 s
+Communication speed: 15.30 Mbps

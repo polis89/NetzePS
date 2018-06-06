@@ -44,17 +44,27 @@
 # }
 
 # TEST TX.c -> RX.c
-# echo "==================================================" >> presentation/c_to_c.txt
-# for ((number=0;number < 10;number++)){
-# 	cd c/
-# 	./RX 4700 4711 > outRX.txt &
-# 	./TX 4700 4711 65000 100 50 "to_send_100kb.jpg" | tail -n 3 >> ../presentation/c_to_c.txt
-# 	cd ../
-# 	echo "===" >> presentation/c_to_c.txt
-# 	echo $number
-# 	sleep 2
-# }
-# echo "==================================================" >> presentation/c_to_c.txt
+echo "==================================================" >> presentation/c_to_c.txt
+for ((number=0;number < 5;number++)){
+	cd c/
+	./RX 4711 > outRX.txt &
+	./TX "127.0.0.1" 4711 10000 50 "to_send_10mb.jpg" | tail -n 3 >> ../presentation/c_to_c.txt
+	cd ../
+	echo "===" >> presentation/c_to_c.txt
+	echo $number
+	sleep 5
+}
+echo "==================================================" >> presentation/c_to_c.txt
+for ((number=0;number < 5;number++)){
+	cd c/
+	./RX 4711 > outRX.txt &
+	./TX "127.0.0.1" 4711 65000 50 "to_send_10mb.jpg" | tail -n 3 >> ../presentation/c_to_c.txt
+	cd ../
+	echo "===" >> presentation/c_to_c.txt
+	echo $number
+	sleep 5
+}
+echo "==================================================" >> presentation/c_to_c.txt
 
 # TEST TX.c -> RX.java
 
@@ -94,16 +104,16 @@
 
 # echo "TX 4700 4711 65000 100 2000 to_send_10mb.jpg" >> presentation/java_to_java.txt
 # echo "==================================================" >> presentation/java_to_java.txt
-for ((number=0;number < 1;number++)){
-	cd java/
-	java RX 4700 4711 > outRX.txt &
-	sleep 2
-	java TX 4700 4711 65000 100 1000 "to_send_10mb.jpg" > outTX.txt
-	cd ../
-	# echo "===" >> presentation/java_to_java.txt
-	echo $number
-	sleep 30
-}
+# for ((number=0;number < 1;number++)){
+# 	cd java/
+# 	java RX 4700 4711 > outRX.txt &
+# 	sleep 2
+# 	java TX 4700 4711 65000 100 1000 "to_send_10mb.jpg" > outTX.txt
+# 	cd ../
+# 	# echo "===" >> presentation/java_to_java.txt
+# 	echo $number
+# 	sleep 30
+# }
 # echo "==================================================" >> presentation/java_to_java.txt
 
 # echo "TX 4700 4711 65000 100 5000 to_send_10mb.jpg" >> presentation/java_to_java.txt

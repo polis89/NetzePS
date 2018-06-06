@@ -31,7 +31,7 @@ typedef struct{
 
  
 unsigned short portRX = 4711; //Default port
-int bufferSize = 2048; //Length of buffer
+int bufferSize = 65000; //Length of buffer
 int sock; //Socket descriptor
 int summ = 0; //Summ recieve
 int summLost = 0; //Summ lost

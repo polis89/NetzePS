@@ -1,4 +1,6 @@
-\frametitle{Compare}
-
-  \includegraphics[width=\linewidth]{plot.png}
-
+\frametitle{WLAN c-to-c results}
+\begin{itemize}
+  	\footnotesize
+    \item{} Die Übertragungsrate durch das Shuttle ist um ein Vielfaches niedriger
+    \item{} Aufgrund der Tatsache, dass der empfangende Computer viel schwächer ist als das Senden, war es notwendig, den Delay-parameter signifikant zu erhöhen, um akzeptable Geschwindigkeiten zu erreichen
+  \end{itemize}

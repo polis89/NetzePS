@@ -46,7 +46,7 @@
 %----------------------------------------------------------------------------------------
 
 \title{Netze und Verteilte Systeme}
-\subtitle{Programmierprojekt}
+\subtitle{Programmierprojekt Teil 3}
 % \date{\today}
 \date{}
 \author{Dmitrii Polianskii, Lukas Lamminger}
@@ -70,19 +70,18 @@
 
 \begin{frame}[fragile]{Usage TX}
 	\begin{block}{C:}
-		\hspace*{2mm} \footnotesize 	 ./TX portTX portRX packet\_size packet\_block\_size send\_delay file\_name
+		\hspace*{2mm} \footnotesize 	 ./TX ipAddr portRX packet\_size send\_delay file\_name
 	\end{block}
 
 	\begin{block}{java:}
-		\hspace*{2mm} \footnotesize 	 java TX portTX portRX packet\_size packet\_block\_size send\_delay file\_name
+		\hspace*{2mm} \footnotesize 	 java TX ipAddr portRX packet\_size send\_delay file\_name
 	\end{block}
 		
   \begin{itemize}
   	\footnotesize 	
-    \item{\textbf{portTX}} - port to recieve acknowlegments (default: 4700)
+    \item{\textbf{ipAddr}} - IP address to send datagrams (default: 127.0.0.1)
     \item{\textbf{portRX}} - port to send datagrams (default: 4711)
     \item{\textbf{packet\_size}} - size of a packet in Bytes (default: 1000)
-    \item{\textbf{packet\_block\_size}} - amount of packets between delay (default: 100)
     \item{\textbf{send\_delay}} - delay in microsec between blocks (default: 200)
     \item{\textbf{file\_name}} - name of a file to transmit (default: to\_send.jpg)
   \end{itemize}
@@ -90,16 +89,15 @@
 
 \begin{frame}[fragile]{Usage RX}
 	\begin{block}{C:}
-		\hspace*{2mm} \footnotesize ./RX portTX portRX 
+		\hspace*{2mm} \footnotesize ./RX portRX
 	\end{block}
 
 	\begin{block}{java:}
-		\hspace*{2mm} \footnotesize java portRX portRX 
+		\hspace*{2mm} \footnotesize java portRX
 	\end{block}
 		
   \begin{itemize}
   	\footnotesize 	
-    \item{\textbf{portTX}} - port to send acknowlegments (default: 4700)
     \item{\textbf{portRX}} - port to recieve datagrams (default: 4711)
   \end{itemize}
 \end{frame}
@@ -127,16 +125,11 @@
 			\item Split filebytes in packages
 		\end{enumerate}
 		\item Initialize UPD Socket
-		\item Initialize Acknowlegments array to obtain transmitted packets
-		\item Transmit one block of packets
+		\item Transmit one packet
+		\item Wait for acknowlegment \{DELAY\} microseconds.
 		\begin{enumerate}
-			\item For every packet in block check if acknolegment was recieved, if not - send a packet.
-			\item If last packet is reached, then start with first again,
-		\end{enumerate}
-		\item Wait for acknowlegments \{DELAY\} microseconds.
-		\begin{enumerate}
-			\item Write every sequence number from acknowlegment packet in Acknowlegments array,
-			\item If all packets were acknowlegment - end transmission. Else - goto punkt 4.
+			\item If a right acknowlegment was recieved -> send next packet.
+			\item If all packets were acknowlegment - end transmission. 
 		\end{enumerate}
 		\end{enumerate}
 	\end{block}
@@ -152,6 +145,7 @@
 		\item Listen for incomming packages
 		\begin{enumerate}
 			\item Write databits from package in a memory
+			\item Send an acknowlegment packet with seq\_num as payload
 			\item If last-package-bit was seen, the size of file and Amount of packets can be defined.
 			\item If not all of package were recieved, then goto punkt 2.
 		\end{enumerate}
@@ -164,15 +158,21 @@
 \section{Tests}
 
 
-\begin{frame}[fragile]{RX description}
+\begin{frame}[fragile]{Tests description}
   \begin{itemize}
   	\footnotesize 	
     \item{} For each set of parameters, the speed measurement is performed 10 times. After that, the average value is calculated
     \item{} The running time and the transfer rate are calculated only for the file transfer phase. Time for initialization and assembly / disassembly of the file is not taken into account.
     \item{} System Characteristics: 
 	  \begin{itemize}
+	    \item{} OS: Ubuntu 18.04 64-bit
+	    \item{} Processor: AMD Ryzen @ 3.50GHz x 4
+	    \item{} Memory: 8GB 
+	  \end{itemize}
+    \item{} Secont System for WLAN tests: 
+	  \begin{itemize}
 	    \item{} OS: Ubuntu 16.04 64-bit
-	    \item{} Processor: Pentium T4200 @ 2.00GHz x 2 
+	    \item{} Processor: Pentium T4200 @ 2.00GHz x 2
 	    \item{} Memory: 4GB 
 	  \end{itemize}
   \end{itemize}
@@ -191,25 +191,25 @@
 			\label{my-label}
 			\begin{tabular}{@{}llllll@{}}
 				\toprule
-				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Block size \\ (packets)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
+				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
 				\midrule
-				100Kb & 1000 & 100 & 200 & 0.023 & 62,8 \\ 
+				100Kb & 1000 & 200 & 0.003 & 258,98 \\ 
 				\midrule
-				100Kb & 1000 & 100 & 50 & 0,009 & 111,1 \\ 
+				100Kb & 1000 & 50 & 0.003 & 254,92 \\ 
 				\midrule
-				100Kb & 1000 & 100 & 10 & 0.01 & 124,2 \\ 
+				100Kb & 1000 & 10 & 0,004 & 223,3 \\ 
 				\midrule
-				1Mb & 1000 & 100 & 200 & 0,118 & 76,5 \\ 
+				1Mb & 1000 & 200 & 0,025 & 322,0 \\ 
 				\midrule
-				1Mb & 1000 & 100 & 50 & 0,087 & 103,1 \\ 
+				1Mb & 1000 & 50 & 0,024 & 332,0 \\ 
 				\midrule
-				1Mb & 1000 & 100 & 10 & 0,127 & 71,3 \\ 
+				1Mb & 1000 & 10 & 0,023 & 347,8 \\ 
 				\midrule
-				10Mb & 1000 & 100 & 200 & 1,863& 45,7 \\ 
+				10Mb & 1000 & 200 & 0,207 & 386,4 \\ 
 				\midrule
-				10Mb & 1000 & 100 & 50 & 1,618 & 52,1 \\ 
+				10Mb & 1000 & 50 & 0,226 & 352,9 \\ 
 				\midrule
-				10Mb & 1000 & 100 & 10 & 1,813 & 48,8 \\ 
+				10Mb & 1000 & 10 & 0,314 & 254,3 \\ 
 				\bottomrule
 			\end{tabular}	
 		\end{table}
@@ -228,23 +228,23 @@
 			\label{my-label}
 			\begin{tabular}{@{}llllll@{}}
 				\toprule
-				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Block size \\ (packets)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
+				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
 				\midrule
-				100Kb & 1000 & 100 & 50 & 0,009 & 111,1 \\ 
+				100Kb & 1000 & 50 & 0.003 & 254,92 \\ 
 				\midrule
-				100Kb & 10000 & 100 & 50 & 0.001 & 278,2 \\
+				100Kb & 10000 & 50 & 0.001 & 786,1 \\
 				\midrule
-				1Mb & 1000 & 100 & 50 & 0,087 & 103,1 \\ 
+				1Mb & 1000 & 50 & 0,024 & 332,0 \\ 
 				\midrule
-				1Mb & 10000 & 100 & 50 & 0,020 & 432,4 \\ 
+				1Mb & 10000 & 50 & 0,007 & 1198,0 \\ 
 				\midrule
-				1Mb & 65000 & 100 & 50 & 0,010 & 1003,7 \\ 
+				1Mb & 65000 & 50 & 0,004 & 2407,6 \\ 
 				\midrule
-				10Mb & 1000 & 100 & 50 & 1,618 & 52,1 \\ 
+				10Mb & 1000 & 50 & 0,226 & 352,9 \\ 
 				\midrule
-				10Mb & 10000 & 100 & 50 & 0,170 & 498,1 \\ 
+				10Mb & 10000 & 50 & 0,058 & 1378,32 \\ 
 				\midrule
-				10Mb & 65000 & 100 & 50 & 0,079 & 1065,4 \\ 
+				10Mb & 65000 & 50 & 0,034 & 2298,6 \\ 
 				\bottomrule
 			\end{tabular}	
 		\end{table}
@@ -254,7 +254,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{TX.c to RX.c}
-	\begin{block}{TX.c to RX.c: Manipulate with size of block}
+	\begin{block}{TX.c to RX.c: WLAN tests}
 	\begin{table}[]
 	\scriptsize 
 	\centering
@@ -263,50 +263,27 @@
 			\label{my-label}
 			\begin{tabular}{@{}llllll@{}}
 				\toprule
-				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Block size \\ (packets)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
+				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
 				\midrule
-				100Kb & 1000 & 100 & 50 & 0,009 & 111,1 \\ 
+				100Kb & 1000 & 1000 & 0.310 & 2,7 \\ 
 				\midrule
-				100Kb & 1000 & 500 & 50 & 0,010 & 96,8 \\ 
+				100Kb & 1000 & 2000 & 0.211 & 3.8 \\
 				\midrule
-				1Mb & 1000 & 50 & 50 & 0,122 & 79,3 \\ 
+				100Kb & 10000 & 5000 & 0.108 & 8.26 \\
 				\midrule
-				1Mb & 1000 & 100 & 50 & 0,087 & 103,1 \\ 
+				100Kb & 10000 & 20000 & 0.068 & 13.87 \\
 				\midrule
-				1Mb & 1000 & 500 & 50 & 0,112 & 81,3 \\ 
+				1Mb & 1000 & 2000 & 2.191 & 4.0 \\ 
 				\midrule
-				10Mb & 1000 & 50 & 50 & 2,773 & 30,9 \\ 
+				1Mb & 10000 & 10000 & 0,651 & 13.4 \\ 
 				\midrule
-				10Mb & 1000 & 100 & 50 & 1,618 & 52,1 \\ 
+				1Mb & 50000 & 50000 & 0,571 & 15.3 \\ 
 				\midrule
-				10Mb & 1000 & 500 & 50 & 1,380 & 63,7 \\ 
+				10Mb & 1000 & 2000 & 24,721 & 3,4 \\ 
 				\midrule
-				10Mb & 1000 & 2000 & 50 & 1,307 & 67,7 \\ 
-				\bottomrule
-			\end{tabular}	
-		\end{table}
-	\end{table}
-
-	\end{block}
-\end{frame}
-
-\begin{frame}[fragile]{TX.c to RX.c}
-	\begin{block}{TX.c to RX.c: Best results}
-	\begin{table}[]
-	\scriptsize 
-	\centering
-		\begin{table}[]
-			\centering
-			\label{my-label}
-			\begin{tabular}{@{}llllll@{}}
-				\toprule
-				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Block size \\ (packets)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
+				10Mb & 10000 & 10000 & 7.14 & 11.8 \\ 
 				\midrule
-				100Kb & 65000 & 100 & 50 & 0,001 & 511,7 \\ 
-				\midrule
-				1Mb & 65000 & 100 & 50 & 0,010 & 1003,7 \\ 
-				\midrule
-				10Mb & 65000 & 200 & 50 & 0,069 & 1100,5 \\ 
+				10Mb & 50000 & 50000 & 4.97 & 16.9 \\ 
 				\bottomrule
 			\end{tabular}	
 		\end{table}
@@ -717,6 +694,16 @@
 
   \includegraphics[width=\linewidth]{plot.png}
 
+\end{frame}
+
+\section{WLAN results}
+
+\begin{frame}[fragile]{WLAN c-to-c results}
+  \begin{itemize}
+  	\footnotesize 	
+    \item{} Die Übertragungsrate durch das Shuttle ist um ein Vielfaches niedriger
+    \item{} Aufgrund der Tatsache, dass der empfangende Computer viel schwächer ist als das Senden, war es notwendig, den Delay-parameter signifikant zu erhöhen, um akzeptable Geschwindigkeiten zu erreichen
+  \end{itemize}
 \end{frame}
 
 \end{document}
