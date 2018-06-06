@@ -1,5 +1,4 @@
 
-
 /**
 
  * RX
@@ -29,9 +28,7 @@ public class RX{
 	private static final int MAX_BUF_SIZE = 8192;
 
 	private static int portRX = 4711; //Default port to send acks
-	
-	private static int portTX = 4700; //Default port to send acks
-	
+		
 	private static byte[] buf = new byte[1_000_000]; //Default buffer
 
 	private static HashMap<Integer, ArrayList<Byte>> recievedData = new HashMap<>();
@@ -54,23 +51,15 @@ public class RX{
 
 
 
-	
-
-
-
 		if (args.length > 0){
 
 			portRX = Integer.parseInt(args[0]);
 
 		}
 
-
-
 		
 
 		DatagramSocket socket = new DatagramSocket(portRX);
-
-		DatagramSocket dSocketAck = new DatagramSocket();
 
 		// int packetSize = s.getBytes().length + 4;
 
@@ -78,7 +67,6 @@ public class RX{
 
 
 
-		long count = 0;
 
 		long packet_recieved = 0;
 
@@ -92,8 +80,6 @@ public class RX{
 
 			socket.receive(packet);
 
-			//System.out.println("=== Recieve ===");
-
 			ia = packet.getAddress();
 
 			DataInputStream dis = new DataInputStream(new ByteArrayInputStream(packet.getData())); //Make input stream from datagramm
@@ -106,9 +92,9 @@ public class RX{
 
 				System.out.println("Last packet");
 
-      	sequenzeNumInt &= (0b0111111111111111); //Remove first bit
+				sequenzeNumInt &= (0b0111111111111111); //Remove first bit
 
-      	packets_amount = sequenzeNumInt + 1;
+				packets_amount = sequenzeNumInt + 1;
 
 			}else if (packet_payload < 0){
 
@@ -152,11 +138,11 @@ public class RX{
 			
 			
 
-    	DatagramPacket ack_packet = new DatagramPacket( axkData, axkData.length, ia, portTX); 
+    	DatagramPacket ack_packet = new DatagramPacket( axkData, axkData.length, ia, packet.getPort()); 
 
-    	dSocketAck.send( ack_packet );
+    	socket.send( ack_packet );
     	
-    	//System.out.println("ack send");
+    	System.out.println("ack send");
 
 		}
 
