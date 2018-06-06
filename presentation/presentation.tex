@@ -417,21 +417,21 @@
 			\label{my-label}
 			\begin{tabular}{@{}llllll@{}}
 				\toprule
-				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Block size \\ (packets)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
+				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
 				\midrule
-				100Kb & 1000 & 100 & 1000 & 0,081 & 10,13 \\ 
+				100Kb & 1000 & 1000 & 0,011 & 95.9 \\ 
 				\midrule
-				100Kb & 1000 & 100 & 2000 & 0,080 & 10,14 \\ 
+				100Kb & 1000 & 2000 & 0,015 & 74.9 \\ 
 				\midrule
-				1Mb & 1000 & 100 & 1000 & 0,404 & 21,9 \\ 
+				1Mb & 1000 & 1000 & 0,031 & 150.91 \\ 
 				\midrule
-				1Mb & 1000 & 100 & 2000 & 0,448 & 19,7 \\ 
+				1Mb & 1000 & 2000 & 0,064 & 146.7 \\ 
 				\midrule
-				10Mb & 1000 & 100 & 1000 & 2,120 & 39,6 \\ 
+				10Mb & 1000 & 1000 & 1.774 & 47.5 \\ 
 				\midrule
-				10Mb & 1000 & 100 & 2000 & 2.151 & 38,8 \\ 
+				10Mb & 1000 & 2000 & 2.181 & 38.5 \\ 
 				\midrule
-				10Mb & 1000 & 100 & 5000 & 2.548 & 32,7 \\ 
+				10Mb & 1000 & 5000 & 2.548 & 33.1 \\ 
 				\bottomrule
 			\end{tabular}	
 		\end{table}
@@ -450,23 +450,23 @@
 			\label{my-label}
 			\begin{tabular}{@{}llllll@{}}
 				\toprule
-				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Block size \\ (packets)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
+				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
 				\midrule
-				100Kb & 1000 & 100 & 1000 & 0,081 & 10,13 \\ 
+				100Kb & 1000 & 1000 & 0,011 & 95.9 \\ 
 				\midrule
-				100Kb & 10000 & 100 & 1000 & 0,016 & 53,1 \\
+				100Kb & 10000 & 1000 & 0,002 & 351.7 \\
 				\midrule
-				1Mb & 1000 & 100 & 1000 & 0,404 & 21,9 \\ 
+				1Mb & 1000 & 1000 & 0,031 & 150.91 \\ 
 				\midrule
-				1Mb & 10000 & 100 & 1000 & 0,088 & 99,0 \\ 
+				1Mb & 10000 & 1000 & 0,020 & 435.9 \\ 
 				\midrule
-				1Mb & 65000 & 100 & 1000 & 0,020 & 376,9 \\ 
+				1Mb & 65000 & 1000 & 0,021 & 403.1 \\ 
 				\midrule
-				10Mb & 1000 & 100 & 1000 & 2,120 & 39,6 \\ 
+				10Mb & 1000 & 1000 & 1.774 & 47.5 \\ 
 				\midrule
-				10Mb & 10000 & 100 & 1000 & 0,482 & 183,8 \\ 
+				10Mb & 10000 & 1000 & 0,115 & 765.6 \\ 
 				\midrule
-				10Mb & 65000 & 100 & 1000 & 0.136 & 635,4 \\ 
+				10Mb & 65000 & 1000 & 0.116 & 740.2 \\ 
 				\bottomrule
 			\end{tabular}	
 		\end{table}
@@ -476,7 +476,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{TX.java to RX.c}
-	\begin{block}{TX.java to RX.c: Manipulate with size of block}
+	\begin{block}{TX.java to RX.c: WLAN tests}
 	\begin{table}[]
 	\scriptsize 
 	\centering
@@ -485,50 +485,25 @@
 			\label{my-label}
 			\begin{tabular}{@{}llllll@{}}
 				\toprule
-				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Block size \\ (packets)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
+				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
 				\midrule
-				100Kb & 1000 & 100 & 1000 & 0,081 & 10,13 \\ 
+				100Kb & 1000 & 1000 & 0.231 & 3.53 \\ 
 				\midrule
-				100Kb & 1000 & 500 & 1000 & 0,013 & 54,8 \\ 
+				100Kb & 1000 & 2000 & 0.361 & 2.26 \\
 				\midrule
-				1Mb & 1000 & 50 & 1000 & 0,418 & 20,9 \\ 
+				100Kb & 10000 & 5000 & 0.108 & 8.62 \\
 				\midrule
-				1Mb & 1000 & 100 & 1000 & 0,404 & 21,9 \\ 
+				1Mb & 1000 & 2000 & 5.419 & 1.62 \\ 
 				\midrule
-				1Mb & 1000 & 500 & 1000 & 0,574 & 6,9 \\ 
+				1Mb & 10000 & 10000 & 2,551 & 3.5 \\ 
 				\midrule
-				10Mb & 1000 & 50 & 1000 & 2,312 & 36,2 \\ 
+				1Mb & 50000 & 50000 & 2,211 & 4.1 \\ 
 				\midrule
-				10Mb & 1000 & 100 & 1000 & 2,120 & 39,6 \\ 
+				10Mb & 1000 & 2000 & 57.65 & 1.46 \\ 
 				\midrule
-				10Mb & 1000 & 500 & 1000 & 3,288 & 26,2 \\ 
+				10Mb & 10000 & 10000 & 17.49 & 4.81 \\ 
 				\midrule
-				10Mb & 1000 & 2000 & 1000 & 31,190 & 2,8 \\ 
-				\bottomrule
-			\end{tabular}	
-		\end{table}
-	\end{table}
-
-	\end{block}
-\end{frame}
-
-\begin{frame}[fragile]{TX.java to RX.c}
-	\begin{block}{TX.java to RX.c: Best results}
-	\begin{table}[]
-	\scriptsize 
-	\centering
-		\begin{table}[]
-			\centering
-			\label{my-label}
-			\begin{tabular}{@{}llllll@{}}
-				\toprule
-				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Block size \\ (packets)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
-				\midrule
-				100Kb & 1000 & 500 & 1000 & 0,013 & 54,8 \\ 
-				\midrule
-				1Mb & 65000 & 100 & 1000 & 0,020 & 376,9 \\ 
-				\midrule
-				10Mb & 65000 & 100 & 1000 & 0.136 & 635,4 \\ 
+				10Mb & 50000 & 20000 & 15.26 & 5.51 \\ 
 				\bottomrule
 			\end{tabular}	
 		\end{table}
@@ -549,19 +524,19 @@
 			\label{my-label}
 			\begin{tabular}{@{}llllll@{}}
 				\toprule
-				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Block size \\ (packets)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
+				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} &  \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
 				\midrule
-				100Kb & 1000 & 100 & 1000 & 0,169 & 4,9 \\ 
+				100Kb & 1000 & 1000 & 0,151 & 5.43 \\ 
 				\midrule
-				100Kb & 1000 & 100 & 2000 & 0,218 & 4,3 \\ 
+				100Kb & 1000 & 2000 & 0,268 & 3.18 \\ 
 				\midrule
-				1Mb & 1000 & 100 & 1000 & 1,022 & 8,7 \\ 
+				1Mb & 1000 & 1000 & 1,402 & 6.25 \\ 
 				\midrule
-				1Mb & 1000 & 100 & 2000 & 0,900 & 9,7 \\ 
+				1Mb & 1000 & 2000 & 2,510 & 3.48 \\ 
 				\midrule
-				10Mb & 1000 & 100 & 1000 & 4,142 & 20,3 \\ 
+				10Mb & 1000 & 1000 & 12.57 & 6.69 \\ 
 				\midrule
-				10Mb & 1000 & 100 & 2000 & 4,148 & 20,2 \\ 
+				10Mb & 1000 & 2000 & 23.12 & 3.64 \\ 
 				\bottomrule
 			\end{tabular}	
 		\end{table}
@@ -580,23 +555,23 @@
 			\label{my-label}
 			\begin{tabular}{@{}llllll@{}}
 				\toprule
-				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Block size \\ (packets)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
+				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
 				\midrule
-				100Kb & 1000 & 100 & 1000 & 0,169 & 4,9 \\ 
+				100Kb & 1000 & 1000 & 0,151 & 5.43 \\ 
 				\midrule
-				100Kb & 10000 & 100 & 1000 & 0,092 & 8,9 \\
+				100Kb & 10000 & 1000 & 0,092 & 24.77 \\
 				\midrule
-				1Mb & 1000 & 100 & 1000 & 1,022 & 8,7 \\ 
+				1Mb & 1000 & 1000 & 1,402 & 6.25 \\ 
 				\midrule
-				1Mb & 10000 & 100 & 1000 & 0,710 & 13,2 \\ 
+				1Mb & 10000 & 1000 & 0,221 & 39.72 \\ 
 				\midrule
-				1Mb & 65000 & 100 & 1000 & 0,378 & 23,7 \\ 
+				1Mb & 65000 & 1000 & 0,098 & 95.25 \\ 
 				\midrule
-				10Mb & 1000 & 100 & 1000 & 4,142 & 20,3 \\ 
+				10Mb & 1000 & 1000 & 12.57 & 6.69 \\ 
 				\midrule
-				10Mb & 10000 & 100 & 1000 & 2,788 & 31,9 \\ 
+				10Mb & 10000 & 1000 & 1,888 & 44.65 \\ 
 				\midrule
-				10Mb & 65000 & 100 & 1000 & 1,91 & 77,5 \\ 
+				10Mb & 65000 & 1000 & 0.69 & 121.07 \\ 
 				\bottomrule
 			\end{tabular}	
 		\end{table}
@@ -606,7 +581,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{TX.java to RX.java}
-	\begin{block}{TX.java to RX.java: Manipulate with size of block}
+	\begin{block}{TX.java to RX.java: WLAN tests}
 	\begin{table}[]
 	\scriptsize 
 	\centering
@@ -615,48 +590,25 @@
 			\label{my-label}
 			\begin{tabular}{@{}llllll@{}}
 				\toprule
-				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Block size \\ (packets)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
+				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
 				\midrule
-				100Kb & 1000 & 100 & 1000 & 0,169 & 4,9 \\ 
+				100Kb & 1000 & 1000 & 0.560 & 1.47 \\ 
 				\midrule
-				100Kb & 1000 & 500 & 1000 & 0,167 & 4,9 \\ 
+				100Kb & 1000 & 2000 & 0.544 & 1.52 \\
 				\midrule
-				1Mb & 1000 & 50 & 1000 & 1,010 & 8,8 \\ 
+				100Kb & 10000 & 5000 & 0.801 & 1.03 \\
 				\midrule
-				1Mb & 1000 & 100 & 1000 & 1,022 & 8,7 \\ 
+				1Mb & 1000 & 2000 & 5.149 & 1.70 \\ 
 				\midrule
-				1Mb & 1000 & 500 & 1000 & 1,188 & 7,5 \\ 
+				1Mb & 10000 & 10000 & 1.933 & 4.53 \\ 
 				\midrule
-				10Mb & 1000 & 50 & 1000 & 3,87 & 21,7 \\ 
+				1Mb & 50000 & 50000 & 2.198 & 4.01 \\ 
 				\midrule
-				10Mb & 1000 & 100 & 1000 & 4,142 & 20,3 \\ 
+				10Mb & 1000 & 2000 & 51.12 & 1.64 \\ 
 				\midrule
-				10Mb & 1000 & 500 & 1000 & 6,388 & 13,9 \\ 
-				\bottomrule
-			\end{tabular}	
-		\end{table}
-	\end{table}
-
-	\end{block}
-\end{frame}
-
-\begin{frame}[fragile]{TX.java to RX.java}
-	\begin{block}{TX.java to RX.java: Best results}
-	\begin{table}[]
-	\scriptsize 
-	\centering
-		\begin{table}[]
-			\centering
-			\label{my-label}
-			\begin{tabular}{@{}llllll@{}}
-				\toprule
-				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Block size \\ (packets)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
+				10Mb & 10000 & 10000 & 18.42 & 4.56 \\ 
 				\midrule
-				100Kb & 10000 & 100 & 1000 & 0,092 & 8,9 \\
-				\midrule
-				1Mb & 65000 & 100 & 5000 & 0,346 & 25,4 \\ 
-				\midrule
-				10Mb & 65000 & 100 & 1000 & 1,91 & 77,5 \\ 
+				10Mb & 50000 & 20000 & 17.39 & 4.83 \\ 
 				\bottomrule
 			\end{tabular}	
 		\end{table}

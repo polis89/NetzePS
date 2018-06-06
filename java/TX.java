@@ -223,61 +223,14 @@ class TX
 
     while(packets_sended < anz_pakete && attempt < 100){
     	
-        //Send block of packets loop
-      
-        while(true) {
-            //Find next non-sended packet
 
-            boolean loopEnd = false;
-
-            while(ack_seq[index_iterator]){
-
-                index_iterator++;
-
-                if(index_iterator == anz_pakete){
-
-                    index_iterator = 0;
-
-                    loopEnd = true;
-
-                    attempt++;
-
-                System.out.println("Attempt: "+ attempt);
-
-                    break;
-
-                }
-
-            }
-
-            if(loopEnd)
-
-                break;
-
-            sendPacket(index_iterator);
-
-            if(index_iterator == anz_pakete - 1)
-
-                break;
-
-            index_iterator++;
-
-            
-
-        }
-
-
+        sendPacket(packets_sended);
 
         //Waiting for acks
-
-       
-
-
 
         byte[] buf = new byte[1000];
 
         dSocket.setSoTimeout((delay/1000) > 0 ? delay/1000 : 1);   // set the timeout in millisecounds.
-
 
 
         while(true){        // recieve data until timeout
@@ -294,12 +247,11 @@ class TX
 
                System.out.println("=== Ack: " + ack_sequenznummer + " ===");
 
-                if(!ack_seq[ack_sequenznummer]){
-
-                    ack_seq[ack_sequenznummer] = true;
+                if(ack_sequenznummer == packets_sended){
 
                     packets_sended++;
-
+                    if(packets_sended == anz_pakete )
+                      break;
                 }
 
             }

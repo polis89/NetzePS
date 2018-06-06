@@ -567,3 +567,238 @@ Time elapsed: 0.13 s
 Communication speed: 661.58 Mbps
 ===
 ==================================================
+TX  4711 1000 1000 to_send_100kb.jpg
+==================================================
+===
+===
+TX  4711 1000 1000 to_send_100kb.jpg
+==================================================
+===
+TX  4711 1000 1000 to_send_100kb.jpg
+==================================================
+===
+TX  4711 1000 1000 to_send_100kb.jpg
+==================================================
+===
+TX  4711 1000 1000 to_send_100kb.jpg
+==================================================
+===
+TX  4711 1000 1000 to_send_100kb.jpg
+==================================================
+File size: 102796 Bytes
+Time elapsed: 0.01 s
+Communication speed: 95.21 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.01 s
+Communication speed: 141.28 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.01 s
+Communication speed: 95.95 Mbps
+===
+==================================================
+TX  4711 1000 2000 to_send_100kb.jpg
+==================================================
+File size: 102796 Bytes
+Time elapsed: 0.01 s
+Communication speed: 125.40 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.01 s
+Communication speed: 64.93 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.01 s
+Communication speed: 64.96 Mbps
+===
+==================================================
+TX  4711 1000 1000 to_send_1mb.jpg
+==================================================
+File size: 1093957 Bytes
+Time elapsed: 0.16 s
+Communication speed: 54.96 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.05 s
+Communication speed: 190.91 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.04 s
+Communication speed: 195.43 Mbps
+===
+==================================================
+TX  4711 1000 2000 to_send_1mb.jpg
+==================================================
+File size: 1093957 Bytes
+Time elapsed: 0.05 s
+Communication speed: 165.86 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.06 s
+Communication speed: 146.78 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.26 s
+Communication speed: 33.20 Mbps
+===
+==================================================
+TX  4711 1000 1000 to_send_10mb.jpg
+==================================================
+File size: 10506316 Bytes
+Time elapsed: 1.58 s
+Communication speed: 53.06 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 1.77 s
+Communication speed: 47.55 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 1.97 s
+Communication speed: 42.61 Mbps
+===
+==================================================
+TX  4711 1000 2000 to_send_10mb.jpg
+==================================================
+File size: 10506316 Bytes
+Time elapsed: 1.98 s
+Communication speed: 42.46 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 2.23 s
+Communication speed: 37.69 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 2.18 s
+Communication speed: 38.56 Mbps
+===
+==================================================
+TX  4711 1000 5000 to_send_10mb.jpg
+==================================================
+File size: 10506316 Bytes
+Time elapsed: 2.54 s
+Communication speed: 33.13 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 3.25 s
+Communication speed: 25.87 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 2.36 s
+Communication speed: 35.59 Mbps
+===
+==================================================
+TX  4711 10000 1000 to_send_100kb.jpg
+==================================================
+File size: 102796 Bytes
+Time elapsed: 0.00 s
+Communication speed: 339.82 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.00 s
+Communication speed: 410.57 Mbps
+===
+File size: 102796 Bytes
+Time elapsed: 0.00 s
+Communication speed: 351.74 Mbps
+===
+==================================================
+TX  4711 10000 1000 to_send_1mb.jpg
+==================================================
+File size: 1093957 Bytes
+Time elapsed: 0.02 s
+Communication speed: 452.17 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.02 s
+Communication speed: 435.90 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.02 s
+Communication speed: 370.90 Mbps
+===
+==================================================
+TX  4711 65000 2000 to_send_1mb.jpg
+==================================================
+File size: 1093957 Bytes
+Time elapsed: 0.02 s
+Communication speed: 403.19 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.02 s
+Communication speed: 383.42 Mbps
+===
+File size: 1093957 Bytes
+Time elapsed: 0.02 s
+Communication speed: 430.01 Mbps
+===
+==================================================
+TX  4711 10000 1000 to_send_10mb.jpg
+==================================================
+File size: 10506316 Bytes
+Time elapsed: 0.11 s
+Communication speed: 765.63 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 0.11 s
+Communication speed: 767.28 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 0.11 s
+Communication speed: 743.40 Mbps
+===
+==================================================
+TX  4711 65000 2000 to_send_10mb.jpg
+==================================================
+File size: 10506316 Bytes
+Time elapsed: 0.11 s
+Communication speed: 756.46 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 0.12 s
+Communication speed: 721.23 Mbps
+===
+File size: 10506316 Bytes
+Time elapsed: 0.11 s
+Communication speed: 740.27 Mbps
+===
+==================================================
+File size: 102796 Bytes
+Time elapsed: 0.23 s
+Communication speed: 3.53 Mbps
+File size: 102796 Bytes
+Time elapsed: 0.36 s
+Communication speed: 2.26 Mbps
+File size: 102796 Bytes
+Time elapsed: 0.62 s
+Communication speed: 1.32 Mbps
+File size: 102796 Bytes
+Time elapsed: 0.22 s
+Communication speed: 3.67 Mbps
+File size: 102796 Bytes
+Time elapsed: 0.30 s
+Communication speed: 2.70 Mbps
+File size: 102796 Bytes
+Time elapsed: 0.29 s
+Communication speed: 2.88 Mbps
+File size: 102796 Bytes
+Time elapsed: 0.10 s
+Communication speed: 8.62 Mbps
+File size: 1093957 Bytes
+Time elapsed: 2.50 s
+Communication speed: 3.50 Mbps
+File size: 1093957 Bytes
+Time elapsed: 2.12 s
+Communication speed: 4.13 Mbps
+File size: 10506316 Bytes
+Time elapsed: 57.65 s
+Communication speed: 1.46 Mbps
+File size: 10506316 Bytes
+Time elapsed: 17.49 s
+Communication speed: 4.81 Mbps
+File size: 10506316 Bytes
+Time elapsed: 20.95 s
+Communication speed: 4.01 Mbps
+File size: 10506316 Bytes
+Time elapsed: 15.26 s
+Communication speed: 5.51 Mbps
