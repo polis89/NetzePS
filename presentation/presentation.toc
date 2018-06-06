@@ -2,7 +2,7 @@
 \beamer@sectionintoc {2}{Tests}{8}{0}{2}
 \beamer@sectionintoc {3}{Tests: C to C}{10}{0}{3}
 \beamer@sectionintoc {4}{Tests: C to Java}{14}{0}{4}
-\beamer@sectionintoc {5}{Tests: Java to C}{19}{0}{5}
-\beamer@sectionintoc {6}{Tests: Java to Java}{24}{0}{6}
-\beamer@sectionintoc {7}{Compare the best of results}{29}{0}{7}
-\beamer@sectionintoc {8}{WLAN results}{31}{0}{8}
+\beamer@sectionintoc {5}{Tests: Java to C}{18}{0}{5}
+\beamer@sectionintoc {6}{Tests: Java to Java}{23}{0}{6}
+\beamer@sectionintoc {7}{Compare the best of results}{28}{0}{7}
+\beamer@sectionintoc {8}{WLAN results}{30}{0}{8}

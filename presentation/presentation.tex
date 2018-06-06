@@ -341,7 +341,7 @@
 			\label{my-label}
 			\begin{tabular}{@{}llllll@{}}
 				\toprule
-				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Block size \\ (packets)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
+				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
 				\midrule
 				100Kb & 1000 & 200 & 0,035 & 28.3 \\ 
 				\midrule
@@ -367,7 +367,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{TX.c to RX.java}
-	\begin{block}{TX.c to RX.c: WLAN tests}
+	\begin{block}{TX.c to RX.java: WLAN tests}
 	\begin{table}[]
 	\scriptsize 
 	\centering
@@ -378,25 +378,25 @@
 				\toprule
 				File size & \begin{tabular}[c]{@{}l@{}}Packet size \\ (Bytes)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Delay \\ (microseconds)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Elapsed time \\ (s)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Speed \\ (Mbps)\end{tabular} \\ 
 				\midrule
-				100Kb & 1000 & 1000 & 0.310 & 2,7 \\ 
+				100Kb & 1000 & 1000 & 0.450 & 1.8 \\ 
 				\midrule
-				100Kb & 1000 & 2000 & 0.211 & 3.8 \\
+				100Kb & 1000 & 2000 & 0.291 & 2.9 \\
 				\midrule
-				100Kb & 10000 & 5000 & 0.108 & 8.26 \\
+				100Kb & 10000 & 5000 & 0.128 & 6.7 \\
 				\midrule
-				100Kb & 10000 & 20000 & 0.068 & 13.87 \\
+				100Kb & 10000 & 20000 & 0.332 & 2.4 \\
 				\midrule
-				1Mb & 1000 & 2000 & 2.191 & 4.0 \\ 
+				1Mb & 1000 & 2000 & 2.521 & 3.4 \\ 
 				\midrule
-				1Mb & 10000 & 10000 & 0,651 & 13.4 \\ 
+				1Mb & 10000 & 10000 & 0,847 & 10.3 \\ 
 				\midrule
-				1Mb & 50000 & 50000 & 0,571 & 15.3 \\ 
+				1Mb & 50000 & 50000 & 0,789 & 11.2 \\ 
 				\midrule
-				10Mb & 1000 & 2000 & 24,721 & 3,4 \\ 
+				10Mb & 1000 & 2000 & 24,471 & 3.4 \\ 
 				\midrule
-				10Mb & 10000 & 10000 & 7.14 & 11.8 \\ 
+				10Mb & 10000 & 10000 & 7.38 & 11.3 \\ 
 				\midrule
-				10Mb & 50000 & 50000 & 4.97 & 16.9 \\ 
+				10Mb & 50000 & 50000 & 5.95 & 14.1 \\ 
 				\bottomrule
 			\end{tabular}	
 		\end{table}
