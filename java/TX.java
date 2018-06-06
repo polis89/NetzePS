@@ -160,9 +160,9 @@ class TX
 
     packets = new ArrayList<DatagramPacket>();
 
-    dSocket = new DatagramSocket();
+    dSocket = new DatagramSocket(portTX);
 
-    dSocketAck = new DatagramSocket(portTX);
+   // dSocketAck = new DatagramSocket(portTX);
 
     ia = InetAddress.getByName(ip_adress);
 
@@ -305,7 +305,7 @@ class TX
 
         byte[] buf = new byte[1000];
 
-        dSocketAck.setSoTimeout((delay/1000) > 0 ? delay/1000 : 1);   // set the timeout in millisecounds.
+        dSocket.setSoTimeout((delay/1000) > 0 ? delay/1000 : 1);   // set the timeout in millisecounds.
 
 
 
@@ -315,13 +315,13 @@ class TX
 
                 DatagramPacket ack_packet = new DatagramPacket(buf, buf.length);
 
-                dSocketAck.receive(ack_packet);
+                dSocket.receive(ack_packet);
 
                 DataInputStream ack_dis = new DataInputStream(new ByteArrayInputStream(ack_packet.getData())); 
 
                 int ack_sequenznummer = ack_dis.readInt();
 
-               // System.out.println("=== Ack: " + ack_sequenznummer + " ===");
+               System.out.println("=== Ack: " + ack_sequenznummer + " ===");
 
                 if(!ack_seq[ack_sequenznummer]){
 
@@ -403,7 +403,7 @@ class TX
 
 
     DatagramPacket packet = new DatagramPacket( packetData, packetData.length, ia, portRX ); 
-
+   // packet.setPort(portTX);
 
 
     for(int i = 0; i < 10; i++) {
