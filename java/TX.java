@@ -3,16 +3,15 @@
 
  *
 
- * Usage: java TX <portTX> <portRX> <packet_size> <packet_block_size> <send_delay> <file_name>
+ * Usage: java TX <ipadress> <portRX> <packet_size> <send_delay> <file_name>
 
- * Default: TX 4700 4711 1000 100 0 to_send.jpg
+ * 
 
  *
 
  * @author Dmitrii Polianskii, Lukas Lamminger
 
  */
-
 
 
 
@@ -97,13 +96,12 @@ class TX
 
   
 
-    if (args.length > 0){
+	 if (args.length > 0){
 
-      portTX = Integer.parseInt(args[0]);
+	   ip_adress = args[0];
 
-    }
-
-  
+	}
+	  
 
     if (args.length > 1){
 
@@ -111,33 +109,21 @@ class TX
 
     }
 
-  
-
     if (args.length > 2){
 
-      msgsize = Integer.parseInt(args[2]);
+        msgsize = Integer.parseInt(args[2]);
 
-    }
-
-    
-
-
+      }
+  
     if (args.length > 3){
 
-      delay = Integer.parseInt(args[3]);
-
-    }
-
-    if (args.length > 4){
-
-        ip_adress = args[4];
+        delay = Integer.parseInt(args[3]);
 
       }
 
+    if (args.length > 4){
 
-    if (args.length > 5){
-
-      fileName = args[5];
+      fileName = args[4];
 
     }
 
