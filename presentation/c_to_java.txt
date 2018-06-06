@@ -1430,3 +1430,261 @@ Time elapsed: 3.02 s
 Communication speed: 27.80 Mbps
 ===
 ==================================================
+./TX 4711 1000 200 to_send_100kb.jpg
+==================================================
+=== Ack recieved: 103 ===
+Time elapsed: 0.03 s
+Communication speed: 28.30 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.03 s
+Communication speed: 32.21 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.03 s
+Communication speed: 24.60 Mbps
+===
+==================================================
+./TX 4711 1000 1000 to_send_100kb.jpg
+==================================================
+=== Ack recieved: 103 ===
+Time elapsed: 0.02 s
+Communication speed: 33.78 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.02 s
+Communication speed: 33.34 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.02 s
+Communication speed: 34.55 Mbps
+===
+==================================================
+./TX 4711 1000 5000 to_send_100kb.jpg
+==================================================
+=== Ack recieved: 103 ===
+Time elapsed: 0.03 s
+Communication speed: 30.49 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.02 s
+Communication speed: 36.73 Mbps
+===
+=== Ack recieved: 103 ===
+Time elapsed: 0.03 s
+Communication speed: 32.13 Mbps
+===
+==================================================
+./TX 4711 1000 200 to_send_1ьb.jpg
+==================================================
+===
+===
+===
+==================================================
+./TX 4711 1000 1000 to_send_1ьb.jpg
+==================================================
+===
+===
+===
+==================================================
+./TX 4711 1000 5000 to_send_1ьb.jpg
+==================================================
+===
+===
+===
+./TX 4711 1000 200 to_send_1mb.jpg
+==================================================
+./TX 4711 1000 200 to_send_1mb.jpg
+==================================================
+=== Ack recieved: 1098 ===
+Time elapsed: 0.08 s
+Communication speed: 107.85 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.09 s
+Communication speed: 94.53 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.09 s
+Communication speed: 92.71 Mbps
+===
+==================================================
+./TX 4711 1000 1000 to_send_1mb.jpg
+==================================================
+./TX 4711 1000 200 to_send_1mb.jpg
+==================================================
+=== Ack recieved: 1098 ===
+Time elapsed: 0.13 s
+Communication speed: 69.52 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.08 s
+Communication speed: 109.03 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.08 s
+Communication speed: 109.61 Mbps
+===
+==================================================
+./TX 4711 1000 1000 to_send_1mb.jpg
+==================================================
+=== Ack recieved: 1098 ===
+Time elapsed: 0.08 s
+Communication speed: 106.41 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.08 s
+Communication speed: 109.11 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.07 s
+Communication speed: 120.66 Mbps
+===
+==================================================
+./TX 4711 1000 5000 to_send_1mb.jpg
+==================================================
+=== Ack recieved: 1098 ===
+Time elapsed: 0.08 s
+Communication speed: 104.48 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.08 s
+Communication speed: 107.22 Mbps
+===
+=== Ack recieved: 1098 ===
+Time elapsed: 0.09 s
+Communication speed: 95.64 Mbps
+===
+==================================================
+./TX 4711 1000 200 to_send_10mb.jpg
+==================================================
+=== Ack recieved: 10548 ===
+Time elapsed: 0.51 s
+Communication speed: 164.33 Mbps
+===
+./TX 4711 1000 200 to_send_10mb.jpg
+==================================================
+=== Ack recieved: 10548 ===
+Time elapsed: 0.49 s
+Communication speed: 170.33 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.56 s
+Communication speed: 149.40 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.51 s
+Communication speed: 165.27 Mbps
+===
+==================================================
+./TX 4711 1000 1000 to_send_10mb.jpg
+==================================================
+=== Ack recieved: 10548 ===
+Time elapsed: 0.49 s
+Communication speed: 171.63 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.62 s
+Communication speed: 136.45 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.55 s
+Communication speed: 153.90 Mbps
+===
+==================================================
+./TX 4711 1000 5000 to_send_10mb.jpg
+==================================================
+=== Ack recieved: 10548 ===
+Time elapsed: 0.48 s
+Communication speed: 174.94 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.56 s
+Communication speed: 151.23 Mbps
+===
+=== Ack recieved: 10548 ===
+Time elapsed: 0.51 s
+Communication speed: 165.08 Mbps
+===
+==================================================
+./TX 4711 10000 200 to_send_100kb.jpg
+==================================================
+=== Ack recieved: 10 ===
+Time elapsed: 0.02 s
+Communication speed: 37.43 Mbps
+===
+=== Ack recieved: 10 ===
+Time elapsed: 0.02 s
+Communication speed: 37.98 Mbps
+===
+=== Ack recieved: 10 ===
+Time elapsed: 0.02 s
+Communication speed: 33.81 Mbps
+===
+==================================================
+./TX 4711 10000 200 to_send_1mb.jpg
+==================================================
+=== Ack recieved: 109 ===
+Time elapsed: 0.06 s
+Communication speed: 146.40 Mbps
+===
+=== Ack recieved: 109 ===
+Time elapsed: 0.06 s
+Communication speed: 144.79 Mbps
+===
+=== Ack recieved: 109 ===
+Time elapsed: 0.06 s
+Communication speed: 158.07 Mbps
+===
+==================================================
+./TX 4711 65000 200 to_send_1mb.jpg
+==================================================
+=== Ack recieved: 16 ===
+Time elapsed: 0.05 s
+Communication speed: 175.91 Mbps
+===
+=== Ack recieved: 16 ===
+Time elapsed: 0.05 s
+Communication speed: 178.69 Mbps
+===
+=== Ack recieved: 16 ===
+Time elapsed: 0.05 s
+Communication speed: 172.22 Mbps
+===
+==================================================
+./TX 4711 10000 200 to_send_10mb.jpg
+==================================================
+=== Ack recieved: 1051 ===
+Time elapsed: 0.30 s
+Communication speed: 277.63 Mbps
+===
+=== Ack recieved: 1051 ===
+Time elapsed: 0.31 s
+Communication speed: 273.73 Mbps
+===
+=== Ack recieved: 1051 ===
+Time elapsed: 0.29 s
+Communication speed: 292.54 Mbps
+===
+==================================================
+./TX 4711 65000 200 to_send_10mb.jpg
+==================================================
+=== Ack recieved: 161 ===
+Time elapsed: 0.25 s
+Communication speed: 341.60 Mbps
+===
+=== Ack recieved: 161 ===
+Time elapsed: 0.25 s
+Communication speed: 336.41 Mbps
+===
+=== Ack recieved: 161 ===
+Time elapsed: 0.25 s
+Communication speed: 336.11 Mbps
+===
+==================================================
+=== Ack recieved: 103 ===
+Time elapsed: 0.02 s
+Communication speed: 34.89 Mbps
+=== Ack recieved: 103 ===
+Time elapsed: 0.02 s
+Communication speed: 35.48 Mbps
